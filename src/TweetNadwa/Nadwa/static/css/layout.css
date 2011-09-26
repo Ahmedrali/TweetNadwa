@@ -1,0 +1,122 @@
+#TWBoard{
+	//background-color:#40AADD;
+	margin-top: 5px;
+	width: 80%;
+	border-bottom:solid #000000;
+	border-bottom-width:1px;
+}
+
+tr.bottomborder td {
+	border-bottom: 1px solid #000000;
+}
+
+td.tdTopTW{
+	border-bottom: 1px solid #FF0000 !important;
+}
+
+td.status-body {
+    font-size: 0.9em;
+    line-height: 1.4em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 4px;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
+}
+
+td.username {
+    padding-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+}
+
+img.userimage {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-left: 3px;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.msg {
+    word-wrap: break-word;
+}
+
+#page-container {
+		//background: hsl(212, 13%, 26%) url(../img/bg-home-tile.jpg) repeat-x 50% 0px;
+		background-repeat-x: repeat;
+		background-repeat-y: no-repeat;
+		background-attachment: initial;
+		background-position-x: 50%;
+		background-position-y: 0px;
+		background-origin: initial;
+		background-clip: initial;
+		background-color: #40AADD;
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		//margin: 0;
+		overflow: auto; /* when page gets too small */
+	
+	
+	//width: 1280px;
+	margin: auto;
+
+}
+
+#content {
+	//border-width: 1px 0 0 1px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	
+//	border-color: white;
+//	border-style: groove;
+	height: 2000px;
+	width: 1280px;
+}
+
+#header{
+	height: 20px;
+	font-size: 25px;
+	color: #fff;
+	font-family: sans-serif;
+	font-style: inherit;
+}
+
+.link{
+	height: 25px;
+	top: 0px !important;
+	padding: 0px 0px !important;
+	line-height: .5 !important;
+}
+
+.ui-button-text{
+	padding: 2px 2px !important;
+}
+
+#showTopTweetsOp{
+	border:1px solid #40AAFF;
+	border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    width: 52%;
+    padding-top: 4px;
+	padding-left: 4px;
+	padding-right: 0;
+	padding-bottom: 4px;
+    margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 0;
+	margin-bottom: 4px;
+    
+}

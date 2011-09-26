@@ -1,0 +1,183 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Nadwa Organization</title>
+		
+		<!-- /site_media/static -->
+		
+		<!--JS Files-->
+		<script type= "text/javascript" src="/static/jquery-1.6.2.min/jquery-1.6.2.min.js"> </script>
+		<script type= "text/javascript" src="/static/jquery-ui-1.8.14.custom/js/jquery-ui-1.8.14.custom.min.js"> </script>
+		<script type= "text/javascript" src="/static/jquery.jqGrid-4.1.1/js/i18n/grid.locale-en.js"></script>
+		<script type= "text/javascript" src="/static/jquery.jqGrid-4.1.1/js/jquery.jqGrid.min.js"></script>
+		
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		
+		<!-- <script type="text/javascript"  src="/static/js/jquery.sparkline.min.js"></script> -->
+		<script type="text/javascript"  src="/static/js/gvTooltip.1.0.min.js"></script>
+		<script type= "text/javascript" src="/static/js/main.js"> </script>
+		
+		<script src="http://platform.twitter.com/anywhere.js?id=SDBsMiCx9faXEcsbQWAoFQ&v=1" type="text/javascript"></script>
+		
+		<!-- CSS Files -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/static/jquery-ui-1.8.14.custom/css/start/jquery-ui-1.8.14.custom.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/static/jquery.jqGrid-4.1.1/css/ui.jqgrid.css" />
+		
+		<link rel="stylesheet" type="text/css" media="screen" href="/static/css/gvTooltip.1.0.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="/static/css/layout.css" />
+		
+	</head>
+	
+	<body>
+	
+		<div id="alert" title="Sorry">
+			<p>Sorry Un-Expected Error Happened, Please Try Again Later.</p>
+		</div>
+		
+		<div id="errCreateNadwa" title="Sorry">
+			<p>Sorry, you need to enter the name HashTag to Create Nadwa</p>
+		</div>
+		
+		<div id="errShowTweets" title="Sorry">
+			<p>Sorry, you need to enter minutes.</p>
+		</div>
+		
+		<div id="errAddUser" title="Sorry">
+			<p>Sorry, you need to enter the user name</p>
+		</div>
+
+		<div id="delUser" title="Confirmation">
+			<p>All Users Deleted Successfully</p>
+		</div>
+		
+		<div id="delTweet" title="Confirmation">
+			<p>All Tweets Deleted Successfully</p>
+		</div>
+		
+		<div id="page-container">
+			<div id="header" align="center" valign="middle"> Tweet Nadwa </div>
+			<!-- <div id="nadwaStartTime"> -->
+				<!-- will display the time of nadwa -->
+			<!-- </div> -->
+			<div id="content" style="width: 100%">
+				<div class="demo">
+					<div id="Nadwa_Tabs" style="width: 100%">
+						<ul>
+							<li id = "nadwaStartTime"> 0h : 0m : 0s </li>
+							<li class="link"><a href="#tabs-1"  >Create Nadwa</a></li>
+							<li class="link"><a href="#tabs-2" >Users</a></li>
+							<li class="link"><a href="#tabs-3" >live Board</a></li>
+							<li class="link"><a href="#tabs-4" >Top 10 Tweets</a></li>
+							<li class="link"><a href="#tabs-5" >Details</a></li>
+							<li class="link"><a href="#tabs-6" >Control</a></li>
+						</ul>
+						
+						<div id="tabs-1" align="center" style="border:2px solid #40AAFF;">
+							<!--
+							<div>
+								    <button type="button" id="signin-btn">Connect with Twitter</button>
+									<script type="text/javascript">
+										twttr.anywhere.config({ callbackURL: "http://tweetnadwa.alwaysdata.net/res" });
+										twttr.anywhere(function (T) {
+											document.getElementById("signin-btn").onclick = function () {
+											T.signIn();
+										};
+										});
+									</script>
+							</div>
+							-->
+							<div id="nadwaNameDiv">
+								# <input type="text" id="hashTag" onKeyPress="nadwaActionEnter(event)"/>
+								<button id = "quBut1" type="button" onclick="createNadwa()">Create Nadwa</button>
+							</div>
+							<br> <br>
+							<div id = "stream">
+							<!-- This Div will contain the confirmation text of Create Nadwa and the button of start stream the status-->
+							</div>
+						</div>
+						
+						<div id="tabs-2" align="center" style="border:2px solid #40AAFF;">
+							<div id="usersDiv">
+								UserName: <input type="text" id="user" onKeyPress="userActionEnter(event)"/>
+								<button id = "quBut2" type="button" onclick="addUser()">Add User</button>
+							</div>
+							<br><br>
+							<table id="tableUsers" class="tables" align="center"></table>
+							<div id="tableUsersPager"></div>
+							<button  align="left" id = "quBut3" type="button" onclick="delUsers()">Delete All Users</button>							
+						</div>
+						
+						<div align="center" id="tabs-3" style="border:2px solid #40AAFF;">
+							
+							<div align="center" id="topTweetsBoard" style="width:70%">
+								<table cellspacing="0" cellpadding="0" align="center" class="liveBoard" id="topliveBoard">
+								</table>
+							</div>
+							
+							<br>
+							
+							<div align="center" id="TweetsBoard" style="width:70%;">
+								<table cellspacing="0" cellpadding="0" align="center" class="liveBoard" id="liveBoard">
+								</table>
+							</div>
+						</div>
+						
+						<div id="tabs-4" style="border:2px solid #40AAFF;">
+							<div align="center" id="graphs" style="width:100%" style="vertical-align:top;">
+								<button id = "showTopTen" type="button" onclick="showTopTen()">Show Top 10 Tweets</button>
+								<br>
+				
+								<div id="insideRT_div"></div>
+								<div id="TopTenInside" style="width: 90%"></div>
+								
+								<div id="outsideRT_div"></div>
+								<div id="TopTenOutside" style="width: 90%"></div>
+								
+								<div id="totalRT_div"></div>
+								<div id="TopTenTotal" style="width: 90%"></div>
+								
+								<div id="longestRTTime_div"></div>
+								<div id="TopTenLongestRTTime" style="width: 90%"></div>
+								
+							</div>
+						</div>
+						
+						<div id="tabs-5" style="border:2px solid #40AAFF;">
+							<div align="center" id="details">
+								<div align="center">
+									<label id = "showTime"> </label>
+									<!-- this label for display current time-->
+									<br>
+									Tweets from <input type="text" id="tweetsfromTime" onKeyPress="showTweetsEnter(event)"/> Minutes
+									<button id = "quBut5" type="button" onclick="showTweets()">show Tweets</button>
+									<input type="checkbox" id="sidx"/> by Outside Rts<br />
+									<br>
+								</div>
+								<div align="center" style="width: 100%">	
+									<button id = "autoUpdate" type="button" onclick="activateAutoUpdate()" > Activate Auto Update </button>
+									<table id="tableTweets" class="tables" align="center"></table>
+									<div id="tableTweetsPager" ></div>
+									<button  id = "quBut4" type="button" onclick="delTweets()">Delete All Tweets</button>
+								</div>
+							</div>
+						</div>
+						
+						<div id="tabs-6" style="border:2px solid #40AAFF;">
+							<label for="showTopTweetsOp"> Showing Live Top Tweets </label>
+							<div id="showTopTweetsOp">
+								Show Top <input type="text" id="topTweets" value="2"/> Tweets
+								sorted by
+								<select id="topTWOptions">
+								  <option value="0">Inside Rts</option>
+								  <option SELECTED value="1">Outside Rts</option>
+								  <option value="2">Total Rts</option>
+								</select>
+								<button id="btnShowTopTWs" type="button" onclick="showTopTweets()">Hide</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

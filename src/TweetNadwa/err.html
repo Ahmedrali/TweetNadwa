@@ -1,0 +1,2468 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>ValueError at /saveStatus</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h2 span { font-size:80%; color:#666; font-weight:normal; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th { padding:1px 6px 1px 3px; background:#fefefe; text-align:left; font-weight:normal; font-size:11px; border:1px solid #ddd; }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 0 2px 40px; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; }
+    ul.traceback li.frame { padding-bottom:1em; }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#666; cursor:pointer; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:black; background-color:#ccc; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    div.commands { margin-left: 40px; }
+    div.commands a { color:black; text-decoration:none; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 0 20px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em;}
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #666; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+  
+  <script type="text/javascript">
+  //<!--
+    function getElementsByClassName(oElm, strTagName, strClassName){
+        // Written by Jonathan Snook, http://www.snook.ca/jon; Add-ons by Robert Nyman, http://www.robertnyman.com
+        var arrElements = (strTagName == "*" && document.all)? document.all :
+        oElm.getElementsByTagName(strTagName);
+        var arrReturnElements = new Array();
+        strClassName = strClassName.replace(/\-/g, "\-");
+        var oRegExp = new RegExp("(^|\s)" + strClassName + "(\s|$)");
+        var oElement;
+        for(var i=0; i<arrElements.length; i++){
+            oElement = arrElements[i];
+            if(oRegExp.test(oElement.className)){
+                arrReturnElements.push(oElement);
+            }
+        }
+        return (arrReturnElements)
+    }
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(getElementsByClassName(document, 'table', 'vars'));
+      hideAll(getElementsByClassName(document, 'ol', 'pre-context'));
+      hideAll(getElementsByClassName(document, 'ol', 'post-context'));
+      hideAll(getElementsByClassName(document, 'div', 'pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block' : 'none';
+        }
+      }
+      return false;
+    }
+    function varToggle(link, id) {
+      toggle('v' + id);
+      var s = link.getElementsByTagName('span')[0];
+      var uarr = String.fromCharCode(0x25b6);
+      var darr = String.fromCharCode(0x25bc);
+      s.innerHTML = s.innerHTML == uarr ? darr : uarr;
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.innerHTML = link.innerHTML == s1 ? s2 : s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+    //-->
+  </script>
+  
+</head>
+<body>
+<div id="summary">
+  <h1>ValueError at /saveStatus</h1>
+  <pre class="exception_value">invalid literal for int() with base 10: &#39;100+&#39;</pre>
+  <table class="meta">
+
+    <tr>
+      <th>Request Method:</th>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>http://127.0.0.1:8000/saveStatus</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>1.3 rc 1</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>ValueError</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>invalid literal for int() with base 10: &#39;100+&#39;</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td>c:\Python26\lib\site-packages\django\db\models\fields\__init__.py in get_prep_value, line 876</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>c:\Python26\python.exe</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>2.6.3</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>[&#39;E:\\Work\\src\\python\\TweetNadwa\\src\\TweetNadwa&#39;,
+ &#39;c:\\Python26\\lib\\site-packages\\setuptools-0.6c11-py2.6.egg&#39;,
+ &#39;c:\\Python26\\lib\\site-packages\\anyjson-0.2.0-py2.6.egg&#39;,
+ &#39;c:\\Python26\\lib\\site-packages\\tweetstream-0.3.1-py2.6.egg&#39;,
+ &#39;c:\\Python26\\lib\\site-packages\\simplejson-2.1.3-py2.6.egg&#39;,
+ &#39;c:\\Python26\\python26.zip&#39;,
+ &#39;c:\\Python26\\DLLs&#39;,
+ &#39;c:\\Python26\\lib&#39;,
+ &#39;c:\\Python26\\lib\\plat-win&#39;,
+ &#39;c:\\Python26\\lib\\lib-tk&#39;,
+ &#39;c:\\Python26&#39;,
+ &#39;c:\\Python26\\lib\\site-packages&#39;]</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Thu, 21 Jul 2011 16:16:07 +0300</td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">Switch to copy-and-paste view</a></span></h2>
+  
+  <div id="browserTraceback">
+    <ul class="traceback">
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\core\handlers\base.py</code> in <code>get_response</code>
+
+          
+            <div class="context" id="c49721952">
+              
+                <ol start="104" class="pre-context" id="pre49721952"><li onclick="toggle('pre49721952', 'post49721952')"><pre>                    for middleware_method in self._view_middleware:</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                        response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                        if response:</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                            break</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre></pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                if response is None:</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                    try:</pre></li></ol>
+              
+              <ol start="111" class="context-line"><li onclick="toggle('pre49721952', 'post49721952')"><pre>                        response = callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start='112' class="post-context" id="post49721952"><li onclick="toggle('pre49721952', 'post49721952')"><pre>                    except Exception, e:</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                        # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                        # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                        # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                        for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre49721952', 'post49721952')"><pre>                            response = middleware_method(request, e)</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49721952')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49721952">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exceptions</td>
+                    <td class="code"><pre>&lt;module &#39;django.core.exceptions&#39; from &#39;c:\Python26\lib\site-packages\django\core\exceptions.pyc&#39;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>e</td>
+                    <td class="code"><pre>ValueError(&quot;invalid literal for int() with base 10: &#39;100+&#39;&quot;,)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>receivers</td>
+                    <td class="code"><pre>[(&lt;function _rollback_on_exception at 0x02CAC070&gt;, None)]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method MessageMiddleware.process_request of &lt;django.contrib.messages.middleware.MessageMiddleware object at 0x02E49F50&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x02E292B0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>settings</td>
+                    <td class="code"><pre>&lt;django.conf.LazySettings object at 0x0230B390&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest
+GET:&lt;QueryDict: {}&gt;,
+POST:&lt;QueryDict: {u&#39;user&#39;: [u&quot;{u&#39;follow_request_sent&#39;: None, u&#39;profile_use_background_image&#39;: True, u&#39;profile_background_image_url_https&#39;: u&#39;https://si0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;verified&#39;: False, u&#39;profile_image_url_https&#39;: u&#39;https://si0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;profile_sidebar_fill_color&#39;: u&#39;DDEEF6&#39;, u&#39;id&#39;: 243340136, u&#39;profile_text_color&#39;: u&#39;333333&#39;, u&#39;followers_count&#39;: 16, u&#39;protected&#39;: False, u&#39;id_str&#39;: u&#39;243340136&#39;, u&#39;default_profile_image&#39;: False, u&#39;location&#39;: u&#39;Cairo, Egypt.&#39;, u&#39;utc_offset&#39;: 7200, u&#39;statuses_count&#39;: 536, u&#39;description&#39;: u&#39;Getting old, Gracefully.&#39;, u&#39;friends_count&#39;: 143, u&#39;profile_link_color&#39;: u&#39;0084B4&#39;, u&#39;profile_image_url&#39;: u&#39;http://a0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;notifications&#39;: None, u&#39;show_all_inline_media&#39;: False, u&#39;geo_enabled&#39;: True, u&#39;profile_background_color&#39;: u&#39;C0DEED&#39;, u&#39;profile_background_image_url&#39;: u&#39;http://a0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;name&#39;: u&#39;The Mo&#39;, u&#39;lang&#39;: u&#39;en&#39;, u&#39;following&#39;: None, u&#39;profile_background_tile&#39;: False, u&#39;favourites_count&#39;: 14, u&#39;screen_name&#39;: u&#39;themo01&#39;, u&#39;url&#39;: None, u&#39;created_at&#39;: u&#39;Wed Jan 26 20:55:14 +0000 2011&#39;, u&#39;contributors_enabled&#39;: False, u&#39;time_zone&#39;: u&#39;Cairo&#39;, u&#39;profile_sidebar_border_color&#39;: u&#39;C0DEED&#39;, u&#39;default_profile&#39;: True, u&#39;is_translator&#39;: False, u&#39;listed_count&#39;: 0}&quot;], u&#39;favorited&#39;: [u&#39;False&#39;], u&#39;retweeted_status&#39;: [u&#39;{u\&#39;user\&#39;: {u\&#39;follow_request_sent\&#39;: None, u\&#39;profile_use_background_image\&#39;: True, u\&#39;profile_background_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;verified\&#39;: False, u\&#39;profile_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;profile_sidebar_fill_color\&#39;: u\&#39;f6ffd1\&#39;, u\&#39;id\&#39;: 131865873, u\&#39;profile_text_color\&#39;: u\&#39;333333\&#39;, u\&#39;followers_count\&#39;: 14067, u\&#39;protected\&#39;: False, u\&#39;id_str\&#39;: u\&#39;131865873\&#39;, u\&#39;default_profile_image\&#39;: False, u\&#39;location\&#39;: u\&#39;Rio de Janeiro\&#39;, u\&#39;utc_offset\&#39;: -10800, u\&#39;statuses_count\&#39;: 8012, u\&#39;description\&#39;: u&quot;Cartunista\\r\\nE-mail: carlos.latuff@gmail.com\\r\\nMSN: latuffcarlos@hotmail.com\\r\\nMobile: +55 21 76552333\\r\\nDON\&#39;T TRUST ON WIKIPEDIA!&quot;, u\&#39;friends_count\&#39;: 6, u\&#39;profile_link_color\&#39;: u\&#39;0099CC\&#39;, u\&#39;profile_image_url\&#39;: u\&#39;http://a1.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;notifications\&#39;: None, u\&#39;show_all_inline_media\&#39;: True, u\&#39;geo_enabled\&#39;: True, u\&#39;profile_background_color\&#39;: u\&#39;FFF04D\&#39;, u\&#39;profile_background_image_url\&#39;: u\&#39;http://a3.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;name\&#39;: u\&#39;Carlos Latuff\&#39;, u\&#39;lang\&#39;: u\&#39;en\&#39;, u\&#39;following\&#39;: None, u\&#39;profile_background_tile\&#39;: True, u\&#39;favourites_count\&#39;: 20, u\&#39;screen_name\&#39;: u\&#39;CarlosLatuff\&#39;, u\&#39;url\&#39;: u\&#39;http://twitpic.com/photos/CarlosLatuff\&#39;, u\&#39;created_at\&#39;: u\&#39;Sun Apr 11 15:39:49 +0000 2010\&#39;, u\&#39;contributors_enabled\&#39;: False, u\&#39;time_zone\&#39;: u\&#39;Brasilia\&#39;, u\&#39;profile_sidebar_border_color\&#39;: u\&#39;fff8ad\&#39;, u\&#39;default_profile\&#39;: False, u\&#39;is_translator\&#39;: False, u\&#39;listed_count\&#39;: 466}, u\&#39;favorited\&#39;: False, u\&#39;entities\&#39;: {u\&#39;user_mentions\&#39;: [{u\&#39;indices\&#39;: [75, 86], u\&#39;id\&#39;: 89221733, u\&#39;screen_name\&#39;: u\&#39;Hazem_Azim\&#39;, u\&#39;name\&#39;: u\&#39;Dr. Hazem Abdelazim\&#39;, u\&#39;id_str\&#39;: u\&#39;89221733\&#39;}], u\&#39;hashtags\&#39;: [{u\&#39;indices\&#39;: [0, 8], u\&#39;text\&#39;: u\&#39;Cartoon\&#39;}, {u\&#39;indices\&#39;: [11, 16], u\&#39;text\&#39;: u\&#39;SCAF\&#39;}, {u\&#39;indices\&#39;: [51, 58], u\&#39;text\&#39;: u\&#39;Tahrir\&#39;}, {u\&#39;indices\&#39;: [59, 65], u\&#39;text\&#39;: u\&#39;Egypt\&#39;}, {u\&#39;indices\&#39;: [66, 72], u\&#39;text\&#39;: u\&#39;Jan25\&#39;}], u\&#39;urls\&#39;: [{u\&#39;indices\&#39;: [87, 112], u\&#39;url\&#39;: u\&#39;http://twitpic.com/5th7it\&#39;, u\&#39;expanded_url\&#39;: None}]}, u\&#39;contributors\&#39;: None, u\&#39;truncated\&#39;: False, u\&#39;text\&#39;: u&quot;#Cartoon - #SCAF \&#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;, u\&#39;created_at\&#39;: u\&#39;Thu Jul 21 13:19:21 +0000 2011\&#39;, u\&#39;retweeted\&#39;: False, u\&#39;in_reply_to_status_id_str\&#39;: None, u\&#39;coordinates\&#39;: None, u\&#39;id\&#39;: 94033722021654528L, u\&#39;source\&#39;: u\&#39;&lt;a href=&quot;http://twitpic.com&quot; rel=&quot;nofollow&quot;&gt;Twitpic&lt;/a&gt;\&#39;, u\&#39;in_reply_to_status_id\&#39;: None, u\&#39;in_reply_to_screen_name\&#39;: None, u\&#39;in_reply_to_user_id\&#39;: None, u\&#39;place\&#39;: None, u\&#39;retweet_count\&#39;: u\&#39;100+\&#39;, u\&#39;geo\&#39;: None, u\&#39;in_reply_to_user_id_str\&#39;: None, u\&#39;id_str\&#39;: u\&#39;94033722021654528\&#39;}&#39;], u&#39;contributors&#39;: [u&#39;None&#39;], u&#39;truncated&#39;: [u&#39;False&#39;], u&#39;source&#39;: [u&#39;&lt;a href=&quot;http://www.tweetcaster.com&quot; rel=&quot;nofollow&quot;&gt;TweetCaster&lt;/a&gt;&#39;], u&#39;text&#39;: [u&quot;RT @CarlosLatuff: #Cartoon - #SCAF &#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;], u&#39;created_at&#39;: [u&#39;Thu Jul 21 14:16:42 +0000 2011&#39;], u&#39;retweeted&#39;: [u&#39;False&#39;], u&#39;in_reply_to_status_id_str&#39;: [u&#39;None&#39;], u&#39;coordinates&#39;: [u&#39;None&#39;], u&#39;id&#39;: [u&#39;94048158253989888&#39;], u&#39;entities&#39;: [u&quot;{u&#39;user_mentions&#39;: [{u&#39;indices&#39;: [3, 16], u&#39;id&#39;: 131865873, u&#39;screen_name&#39;: u&#39;CarlosLatuff&#39;, u&#39;name&#39;: u&#39;Carlos Latuff&#39;, u&#39;id_str&#39;: u&#39;131865873&#39;}, {u&#39;indices&#39;: [93, 104], u&#39;id&#39;: 89221733, u&#39;screen_name&#39;: u&#39;Hazem_Azim&#39;, u&#39;name&#39;: u&#39;Dr. Hazem Abdelazim&#39;, u&#39;id_str&#39;: u&#39;89221733&#39;}], u&#39;hashtags&#39;: [{u&#39;indices&#39;: [18, 26], u&#39;text&#39;: u&#39;Cartoon&#39;}, {u&#39;indices&#39;: [29, 34], u&#39;text&#39;: u&#39;SCAF&#39;}, {u&#39;indices&#39;: [69, 76], u&#39;text&#39;: u&#39;Tahrir&#39;}, {u&#39;indices&#39;: [77, 83], u&#39;text&#39;: u&#39;Egypt&#39;}, {u&#39;indices&#39;: [84, 90], u&#39;text&#39;: u&#39;Jan25&#39;}], u&#39;urls&#39;: [{u&#39;indices&#39;: [105, 130], u&#39;url&#39;: u&#39;http://twitpic.com/5th7it&#39;, u&#39;expanded_url&#39;: None}]}&quot;], u&#39;in_reply_to_status_id&#39;: [u&#39;None&#39;], u&#39;in_reply_to_screen_name&#39;: [u&#39;None&#39;], u&#39;in_reply_to_user_id&#39;: [u&#39;None&#39;], u&#39;place&#39;: [u&#39;None&#39;], u&#39;retweet_count&#39;: [u&#39;100+&#39;], u&#39;geo&#39;: [u&#39;None&#39;], u&#39;in_reply_to_user_id_str&#39;: [u&#39;None&#39;], u&#39;id_str&#39;: [u&#39;94048158253989888&#39;]}&gt;,
+COOKIES:{},
+META:{&#39;ALLUSERSPROFILE&#39;: &#39;C:\\ProgramData&#39;,
+ &#39;APPDATA&#39;: &#39;C:\\Users\\Ahmed H.Ali\\AppData\\Roaming&#39;,
+ &#39;BURN_AUTOPLAY&#39;: &#39;C:\\Program Files (x86)\\Roxio\\OEM\\Roxio Burn\\&#39;,
+ &#39;CLASSPATH&#39;: &#39;.;C:\\Program Files (x86)\\Java\\jre6\\lib\\ext\\QTJava.zip&#39;,
+ &#39;COMMONPROGRAMFILES&#39;: &#39;C:\\Program Files (x86)\\Common Files&#39;,
+ &#39;COMMONPROGRAMFILES(X86)&#39;: &#39;C:\\Program Files (x86)\\Common Files&#39;,
+ &#39;COMMONPROGRAMW6432&#39;: &#39;C:\\Program Files\\Common Files&#39;,
+ &#39;COMPUTERNAME&#39;: &#39;AALI-PC&#39;,
+ &#39;COMSPEC&#39;: &#39;C:\\Windows\\system32\\cmd.exe&#39;,
+ &#39;CONTENT_LENGTH&#39;: &#39;7089&#39;,
+ &#39;CONTENT_TYPE&#39;: &#39;application/x-www-form-urlencoded&#39;,
+ &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;TweetNadwa.settings&#39;,
+ &#39;EMC_AUTOPLAY&#39;: &#39;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\&#39;,
+ &#39;FP_NO_HOST_CHECK&#39;: &#39;NO&#39;,
+ &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,
+ &#39;HOMEDRIVE&#39;: &#39;C:&#39;,
+ &#39;HOMEPATH&#39;: &#39;\\Users\\Ahmed H.Ali&#39;,
+ &#39;HTTP_HOST&#39;: &#39;127.0.0.1:8000&#39;,
+ &#39;HTTP_USER_AGENT&#39;: &#39;Python-urllib/1.17&#39;,
+ &#39;JAVA_HOME&#39;: &#39;C:\\Program Files (x86)\\Java\\jdk1.6.0_02&#39;,
+ &#39;LOCALAPPDATA&#39;: &#39;C:\\Users\\Ahmed H.Ali\\AppData\\Local&#39;,
+ &#39;LOGONSERVER&#39;: &#39;\\\\AALI-PC&#39;,
+ &#39;NUMBER_OF_PROCESSORS&#39;: &#39;4&#39;,
+ &#39;OS&#39;: &#39;Windows_NT&#39;,
+ &#39;PATH&#39;: &#39;E:\\Perl\\bin\\;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\Dell\\DW WLAN Card;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;C:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\syswow64;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Subversion\\bin;C:\\Python25;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;E:\\Programs\\Programming\\Tools\\apache-maven-2.2.1\\bin;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin\\;C:\\Program Files (x86)\\Java\\jre1.6.0_02\\lib;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\;C:\\Program Files (x86)\\Common Files\\Symbian\\tools;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin;\\epoc32\\tools\\sbs\\bin;C:\\Program Files (x86)\\CSL Arm Toolchain\\bin;C:\\Program Files (x86)\\MATLAB\\R2007b\\bin;C:\\Program Files (x86)\\MATLAB\\R2007b\\bin\\win32;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\Dell\\DW WLAN Card;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;C:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\syswow64;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Subversion\\bin;C:\\Python25;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;E:\\Programs\\Programming\\Tools\\apache-maven-2.2.1\\bin;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin\\;C:\\Program Files (x86)\\Java\\jre1.6.0_02\\lib;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\;C:\\Program Files (x86)\\Common Files\\Symbian\\tools&#39;,
+ &#39;PATHEXT&#39;: &#39;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC&#39;,
+ &#39;PATH_INFO&#39;: u&#39;/saveStatus&#39;,
+ &#39;PROCESSOR_ARCHITECTURE&#39;: &#39;x86&#39;,
+ &#39;PROCESSOR_ARCHITEW6432&#39;: &#39;AMD64&#39;,
+ &#39;PROCESSOR_IDENTIFIER&#39;: &#39;Intel64 Family 6 Model 37 Stepping 5, GenuineIntel&#39;,
+ &#39;PROCESSOR_LEVEL&#39;: &#39;6&#39;,
+ &#39;PROCESSOR_REVISION&#39;: &#39;2505&#39;,
+ &#39;PROGRAMDATA&#39;: &#39;C:\\ProgramData&#39;,
+ &#39;PROGRAMFILES&#39;: &#39;C:\\Program Files (x86)&#39;,
+ &#39;PROGRAMFILES(X86)&#39;: &#39;C:\\Program Files (x86)&#39;,
+ &#39;PROGRAMW6432&#39;: &#39;C:\\Program Files&#39;,
+ &#39;PROMPT&#39;: &#39;$P$G&#39;,
+ &#39;PSMODULEPATH&#39;: &#39;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\&#39;,
+ &#39;PUBLIC&#39;: &#39;C:\\Users\\Public&#39;,
+ &#39;QTJAVA&#39;: &#39;C:\\Program Files (x86)\\Java\\jre6\\lib\\ext\\QTJava.zip&#39;,
+ &#39;QUERY_STRING&#39;: &#39;&#39;,
+ &#39;RCAUTOPLAY&#39;: &#39;C:\\Program Files (x86)\\Roxio\\OEM\\Roxio Central 5\\&#39;,
+ &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,
+ &#39;REMOTE_HOST&#39;: &#39;&#39;,
+ &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
+ &#39;RUN_MAIN&#39;: &#39;true&#39;,
+ &#39;SBS_GCCE441BIN&#39;: &#39;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin&#39;,
+ &#39;SBS_HOME&#39;: &#39;\\epoc32\\tools\\sbs&#39;,
+ &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
+ &#39;SERVER_NAME&#39;: &#39;aali-PC&#39;,
+ &#39;SERVER_PORT&#39;: &#39;8000&#39;,
+ &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.0&#39;,
+ &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.6.3&#39;,
+ &#39;SESSIONNAME&#39;: &#39;Console&#39;,
+ &#39;SYSTEMDRIVE&#39;: &#39;C:&#39;,
+ &#39;SYSTEMROOT&#39;: &#39;C:\\Windows&#39;,
+ &#39;TEMP&#39;: &#39;C:\\Users\\AHMEDH~1.ALI\\AppData\\Local\\Temp&#39;,
+ &#39;TMP&#39;: &#39;C:\\Users\\AHMEDH~1.ALI\\AppData\\Local\\Temp&#39;,
+ &#39;USERDOMAIN&#39;: &#39;aali-PC&#39;,
+ &#39;USERNAME&#39;: &#39;Ahmed H.Ali&#39;,
+ &#39;USERPROFILE&#39;: &#39;C:\\Users\\Ahmed H.Ali&#39;,
+ &#39;WINDIR&#39;: &#39;C:\\Windows&#39;,
+ &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x005840C0&gt;,
+ &#39;wsgi.file_wrapper&#39;: &lt;class &#39;django.core.servers.basehttp.FileWrapper&#39;&gt;,
+ &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x02F648F0&gt;,
+ &#39;wsgi.multiprocess&#39;: False,
+ &#39;wsgi.multithread&#39;: True,
+ &#39;wsgi.run_once&#39;: False,
+ &#39;wsgi.url_scheme&#39;: &#39;http&#39;,
+ &#39;wsgi.version&#39;: (1, 0)}&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function saveStatus at 0x02ECAC70&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;RegexURLResolver TweetNadwa.urls (None:None) ^/&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlresolvers</td>
+                    <td class="code"><pre>&lt;module &#39;django.core.urlresolvers&#39; from &#39;c:\Python26\lib\site-packages\django\core\urlresolvers.pyc&#39;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf</td>
+                    <td class="code"><pre>&#39;TweetNadwa.urls&#39;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>E:\Work\src\python\TweetNadwa\src\TweetNadwa\Nadwa\views.py</code> in <code>saveStatus</code>
+
+          
+            <div class="context" id="c49725032">
+              
+                <ol start="277" class="pre-context" id="pre49725032"><li onclick="toggle('pre49725032', 'post49725032')"><pre>            RTUser.org_id = tweetID</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>            RTUser.screen_name = userName</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>            RTUser.attendant = attendant </pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>            RTUser.save()</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>            print &quot;RetweetUsers Saved&quot;</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>    </pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>    status.screen_Name = screen_Name</pre></li></ol>
+              
+              <ol start="284" class="context-line"><li onclick="toggle('pre49725032', 'post49725032')"><pre>    status.save();</pre> <span>...</span></li></ol>
+              
+                <ol start='285' class="post-context" id="post49725032"><li onclick="toggle('pre49725032', 'post49725032')"><pre>    print &quot;Numer of Saved Statues = %s&quot; %(Status.objects.count())</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>    return HttpResponse(&quot;ok&quot;)</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre></pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>def search(request):</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>    Status.objects.all().delete() # Delete all Previous Status</pre></li><li onclick="toggle('pre49725032', 'post49725032')"><pre>    thread = SearchThread()</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49725032')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49725032">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>userName</td>
+                    <td class="code"><pre>u&#39;themo01&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status</td>
+                    <td class="code"><pre>&lt;Status: Status object&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>create_date</td>
+                    <td class="code"><pre>datetime.datetime(2011, 7, 21, 16, 16, 42)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>screen_Name</td>
+                    <td class="code"><pre>&#39;   &#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>retweeted_status</td>
+                    <td class="code"><pre>u&#39;{u\&#39;user\&#39;: {u\&#39;follow_request_sent\&#39;: None, u\&#39;profile_use_background_image\&#39;: True, u\&#39;profile_background_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;verified\&#39;: False, u\&#39;profile_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;profile_sidebar_fill_color\&#39;: u\&#39;f6ffd1\&#39;, u\&#39;id\&#39;: 131865873, u\&#39;profile_text_color\&#39;: u\&#39;333333\&#39;, u\&#39;followers_count\&#39;: 14067, u\&#39;protected\&#39;: False, u\&#39;id_str\&#39;: u\&#39;131865873\&#39;, u\&#39;default_profile_image\&#39;: False, u\&#39;location\&#39;: u\&#39;Rio de Janeiro\&#39;, u\&#39;utc_offset\&#39;: -10800, u\&#39;statuses_count\&#39;: 8012, u\&#39;description\&#39;: u&quot;Cartunista\\r\\nE-mail: carlos.latuff@gmail.com\\r\\nMSN: latuffcarlos@hotmail.com\\r\\nMobile: +55 21 76552333\\r\\nDON\&#39;T TRUST ON WIKIPEDIA!&quot;, u\&#39;friends_count\&#39;: 6, u\&#39;profile_link_color\&#39;: u\&#39;0099CC\&#39;, u\&#39;profile_image_url\&#39;: u\&#39;http://a1.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;notifications\&#39;: None, u\&#39;show_all_inline_media\&#39;: True, u\&#39;geo_enabled\&#39;: True, u\&#39;profile_background_color\&#39;: u\&#39;FFF04D\&#39;, u\&#39;profile_background_image_url\&#39;: u\&#39;http://a3.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;name\&#39;: u\&#39;Carlos Latuff\&#39;, u\&#39;lang\&#39;: u\&#39;en\&#39;, u\&#39;following\&#39;: None, u\&#39;profile_background_tile\&#39;: True, u\&#39;favourites_count\&#39;: 20, u\&#39;screen_name\&#39;: u\&#39;CarlosLatuff\&#39;, u\&#39;url\&#39;: u\&#39;http://twitpic.com/photos/CarlosLatuff\&#39;, u\&#39;created_at\&#39;: u\&#39;Sun Apr 11 15:39:49 +0000 2010\&#39;, u\&#39;contributors_enabled\&#39;: False, u\&#39;time_zone\&#39;: u\&#39;Brasilia\&#39;, u\&#39;profile_sidebar_border_color\&#39;: u\&#39;fff8ad\&#39;, u\&#39;default_profile\&#39;: False, u\&#39;is_translator\&#39;: False, u\&#39;listed_count\&#39;: 466}, u\&#39;favorited\&#39;: False, u\&#39;entities\&#39;: {u\&#39;user_mentions\&#39;: [{u\&#39;indices\&#39;: [75, 86], u\&#39;id\&#39;: 89221733, u\&#39;screen_name\&#39;: u\&#39;Hazem_Azim\&#39;, u\&#39;name\&#39;: u\&#39;Dr. Hazem Abdelazim\&#39;, u\&#39;id_str\&#39;: u\&#39;89221733\&#39;}], u\&#39;hashtags\&#39;: [{u\&#39;indices\&#39;: [0, 8], u\&#39;text\&#39;: u\&#39;Cartoon\&#39;}, {u\&#39;indices\&#39;: [11, 16], u\&#39;text\&#39;: u\&#39;SCAF\&#39;}, {u\&#39;indices\&#39;: [51, 58], u\&#39;text\&#39;: u\&#39;Tahrir\&#39;}, {u\&#39;indices\&#39;: [59, 65], u\&#39;text\&#39;: u\&#39;Egypt\&#39;}, {u\&#39;indices\&#39;: [66, 72], u\&#39;text\&#39;: u\&#39;Jan25\&#39;}], u\&#39;urls\&#39;: [{u\&#39;indices\&#39;: [87, 112], u\&#39;url\&#39;: u\&#39;http://twitpic.com/5th7it\&#39;, u\&#39;expanded_url\&#39;: None}]}, u\&#39;contributors\&#39;: None, u\&#39;truncated\&#39;: False, u\&#39;text\&#39;: u&quot;#Cartoon - #SCAF \&#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;, u\&#39;created_at\&#39;: u\&#39;Thu Jul 21 13:19:21 +0000 2011\&#39;, u\&#39;retweeted\&#39;: False, u\&#39;in_reply_to_status_id_str\&#39;: None, u\&#39;coordinates\&#39;: None, u\&#39;id\&#39;: 94033722021654528L, u\&#39;source\&#39;: u\&#39;&lt;a href=&quot;http://twitpic.com&quot; rel=&quot;nofollow&quot;&gt;Twitpic&lt;/a&gt;\&#39;, u\&#39;in_reply_to_status_id\&#39;: None, u\&#39;in_reply_to_screen_name\&#39;: None, u\&#39;in_reply_to_user_id\&#39;: None, u\&#39;place\&#39;: None, u\&#39;retweet_count\&#39;: u\&#39;100+\&#39;, u\&#39;geo\&#39;: None, u\&#39;in_reply_to_user_id_str\&#39;: None, u\&#39;id_str\&#39;: u\&#39;94033722021654528\&#39;}&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>source</td>
+                    <td class="code"><pre>u&#39;&lt;a href=&quot;http://www.tweetcaster.com&quot; rel=&quot;nofollow&quot;&gt;TweetCaster&lt;/a&gt;&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>s_id</td>
+                    <td class="code"><pre>u&#39;94048158253989888&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>text</td>
+                    <td class="code"><pre>u&quot;RT @CarlosLatuff: #Cartoon - #SCAF &#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>tweet</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>userId</td>
+                    <td class="code"><pre>u&#39;243340136&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest
+GET:&lt;QueryDict: {}&gt;,
+POST:&lt;QueryDict: {u&#39;user&#39;: [u&quot;{u&#39;follow_request_sent&#39;: None, u&#39;profile_use_background_image&#39;: True, u&#39;profile_background_image_url_https&#39;: u&#39;https://si0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;verified&#39;: False, u&#39;profile_image_url_https&#39;: u&#39;https://si0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;profile_sidebar_fill_color&#39;: u&#39;DDEEF6&#39;, u&#39;id&#39;: 243340136, u&#39;profile_text_color&#39;: u&#39;333333&#39;, u&#39;followers_count&#39;: 16, u&#39;protected&#39;: False, u&#39;id_str&#39;: u&#39;243340136&#39;, u&#39;default_profile_image&#39;: False, u&#39;location&#39;: u&#39;Cairo, Egypt.&#39;, u&#39;utc_offset&#39;: 7200, u&#39;statuses_count&#39;: 536, u&#39;description&#39;: u&#39;Getting old, Gracefully.&#39;, u&#39;friends_count&#39;: 143, u&#39;profile_link_color&#39;: u&#39;0084B4&#39;, u&#39;profile_image_url&#39;: u&#39;http://a0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;notifications&#39;: None, u&#39;show_all_inline_media&#39;: False, u&#39;geo_enabled&#39;: True, u&#39;profile_background_color&#39;: u&#39;C0DEED&#39;, u&#39;profile_background_image_url&#39;: u&#39;http://a0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;name&#39;: u&#39;The Mo&#39;, u&#39;lang&#39;: u&#39;en&#39;, u&#39;following&#39;: None, u&#39;profile_background_tile&#39;: False, u&#39;favourites_count&#39;: 14, u&#39;screen_name&#39;: u&#39;themo01&#39;, u&#39;url&#39;: None, u&#39;created_at&#39;: u&#39;Wed Jan 26 20:55:14 +0000 2011&#39;, u&#39;contributors_enabled&#39;: False, u&#39;time_zone&#39;: u&#39;Cairo&#39;, u&#39;profile_sidebar_border_color&#39;: u&#39;C0DEED&#39;, u&#39;default_profile&#39;: True, u&#39;is_translator&#39;: False, u&#39;listed_count&#39;: 0}&quot;], u&#39;favorited&#39;: [u&#39;False&#39;], u&#39;retweeted_status&#39;: [u&#39;{u\&#39;user\&#39;: {u\&#39;follow_request_sent\&#39;: None, u\&#39;profile_use_background_image\&#39;: True, u\&#39;profile_background_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;verified\&#39;: False, u\&#39;profile_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;profile_sidebar_fill_color\&#39;: u\&#39;f6ffd1\&#39;, u\&#39;id\&#39;: 131865873, u\&#39;profile_text_color\&#39;: u\&#39;333333\&#39;, u\&#39;followers_count\&#39;: 14067, u\&#39;protected\&#39;: False, u\&#39;id_str\&#39;: u\&#39;131865873\&#39;, u\&#39;default_profile_image\&#39;: False, u\&#39;location\&#39;: u\&#39;Rio de Janeiro\&#39;, u\&#39;utc_offset\&#39;: -10800, u\&#39;statuses_count\&#39;: 8012, u\&#39;description\&#39;: u&quot;Cartunista\\r\\nE-mail: carlos.latuff@gmail.com\\r\\nMSN: latuffcarlos@hotmail.com\\r\\nMobile: +55 21 76552333\\r\\nDON\&#39;T TRUST ON WIKIPEDIA!&quot;, u\&#39;friends_count\&#39;: 6, u\&#39;profile_link_color\&#39;: u\&#39;0099CC\&#39;, u\&#39;profile_image_url\&#39;: u\&#39;http://a1.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;notifications\&#39;: None, u\&#39;show_all_inline_media\&#39;: True, u\&#39;geo_enabled\&#39;: True, u\&#39;profile_background_color\&#39;: u\&#39;FFF04D\&#39;, u\&#39;profile_background_image_url\&#39;: u\&#39;http://a3.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;name\&#39;: u\&#39;Carlos Latuff\&#39;, u\&#39;lang\&#39;: u\&#39;en\&#39;, u\&#39;following\&#39;: None, u\&#39;profile_background_tile\&#39;: True, u\&#39;favourites_count\&#39;: 20, u\&#39;screen_name\&#39;: u\&#39;CarlosLatuff\&#39;, u\&#39;url\&#39;: u\&#39;http://twitpic.com/photos/CarlosLatuff\&#39;, u\&#39;created_at\&#39;: u\&#39;Sun Apr 11 15:39:49 +0000 2010\&#39;, u\&#39;contributors_enabled\&#39;: False, u\&#39;time_zone\&#39;: u\&#39;Brasilia\&#39;, u\&#39;profile_sidebar_border_color\&#39;: u\&#39;fff8ad\&#39;, u\&#39;default_profile\&#39;: False, u\&#39;is_translator\&#39;: False, u\&#39;listed_count\&#39;: 466}, u\&#39;favorited\&#39;: False, u\&#39;entities\&#39;: {u\&#39;user_mentions\&#39;: [{u\&#39;indices\&#39;: [75, 86], u\&#39;id\&#39;: 89221733, u\&#39;screen_name\&#39;: u\&#39;Hazem_Azim\&#39;, u\&#39;name\&#39;: u\&#39;Dr. Hazem Abdelazim\&#39;, u\&#39;id_str\&#39;: u\&#39;89221733\&#39;}], u\&#39;hashtags\&#39;: [{u\&#39;indices\&#39;: [0, 8], u\&#39;text\&#39;: u\&#39;Cartoon\&#39;}, {u\&#39;indices\&#39;: [11, 16], u\&#39;text\&#39;: u\&#39;SCAF\&#39;}, {u\&#39;indices\&#39;: [51, 58], u\&#39;text\&#39;: u\&#39;Tahrir\&#39;}, {u\&#39;indices\&#39;: [59, 65], u\&#39;text\&#39;: u\&#39;Egypt\&#39;}, {u\&#39;indices\&#39;: [66, 72], u\&#39;text\&#39;: u\&#39;Jan25\&#39;}], u\&#39;urls\&#39;: [{u\&#39;indices\&#39;: [87, 112], u\&#39;url\&#39;: u\&#39;http://twitpic.com/5th7it\&#39;, u\&#39;expanded_url\&#39;: None}]}, u\&#39;contributors\&#39;: None, u\&#39;truncated\&#39;: False, u\&#39;text\&#39;: u&quot;#Cartoon - #SCAF \&#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;, u\&#39;created_at\&#39;: u\&#39;Thu Jul 21 13:19:21 +0000 2011\&#39;, u\&#39;retweeted\&#39;: False, u\&#39;in_reply_to_status_id_str\&#39;: None, u\&#39;coordinates\&#39;: None, u\&#39;id\&#39;: 94033722021654528L, u\&#39;source\&#39;: u\&#39;&lt;a href=&quot;http://twitpic.com&quot; rel=&quot;nofollow&quot;&gt;Twitpic&lt;/a&gt;\&#39;, u\&#39;in_reply_to_status_id\&#39;: None, u\&#39;in_reply_to_screen_name\&#39;: None, u\&#39;in_reply_to_user_id\&#39;: None, u\&#39;place\&#39;: None, u\&#39;retweet_count\&#39;: u\&#39;100+\&#39;, u\&#39;geo\&#39;: None, u\&#39;in_reply_to_user_id_str\&#39;: None, u\&#39;id_str\&#39;: u\&#39;94033722021654528\&#39;}&#39;], u&#39;contributors&#39;: [u&#39;None&#39;], u&#39;truncated&#39;: [u&#39;False&#39;], u&#39;source&#39;: [u&#39;&lt;a href=&quot;http://www.tweetcaster.com&quot; rel=&quot;nofollow&quot;&gt;TweetCaster&lt;/a&gt;&#39;], u&#39;text&#39;: [u&quot;RT @CarlosLatuff: #Cartoon - #SCAF &#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;], u&#39;created_at&#39;: [u&#39;Thu Jul 21 14:16:42 +0000 2011&#39;], u&#39;retweeted&#39;: [u&#39;False&#39;], u&#39;in_reply_to_status_id_str&#39;: [u&#39;None&#39;], u&#39;coordinates&#39;: [u&#39;None&#39;], u&#39;id&#39;: [u&#39;94048158253989888&#39;], u&#39;entities&#39;: [u&quot;{u&#39;user_mentions&#39;: [{u&#39;indices&#39;: [3, 16], u&#39;id&#39;: 131865873, u&#39;screen_name&#39;: u&#39;CarlosLatuff&#39;, u&#39;name&#39;: u&#39;Carlos Latuff&#39;, u&#39;id_str&#39;: u&#39;131865873&#39;}, {u&#39;indices&#39;: [93, 104], u&#39;id&#39;: 89221733, u&#39;screen_name&#39;: u&#39;Hazem_Azim&#39;, u&#39;name&#39;: u&#39;Dr. Hazem Abdelazim&#39;, u&#39;id_str&#39;: u&#39;89221733&#39;}], u&#39;hashtags&#39;: [{u&#39;indices&#39;: [18, 26], u&#39;text&#39;: u&#39;Cartoon&#39;}, {u&#39;indices&#39;: [29, 34], u&#39;text&#39;: u&#39;SCAF&#39;}, {u&#39;indices&#39;: [69, 76], u&#39;text&#39;: u&#39;Tahrir&#39;}, {u&#39;indices&#39;: [77, 83], u&#39;text&#39;: u&#39;Egypt&#39;}, {u&#39;indices&#39;: [84, 90], u&#39;text&#39;: u&#39;Jan25&#39;}], u&#39;urls&#39;: [{u&#39;indices&#39;: [105, 130], u&#39;url&#39;: u&#39;http://twitpic.com/5th7it&#39;, u&#39;expanded_url&#39;: None}]}&quot;], u&#39;in_reply_to_status_id&#39;: [u&#39;None&#39;], u&#39;in_reply_to_screen_name&#39;: [u&#39;None&#39;], u&#39;in_reply_to_user_id&#39;: [u&#39;None&#39;], u&#39;place&#39;: [u&#39;None&#39;], u&#39;retweet_count&#39;: [u&#39;100+&#39;], u&#39;geo&#39;: [u&#39;None&#39;], u&#39;in_reply_to_user_id_str&#39;: [u&#39;None&#39;], u&#39;id_str&#39;: [u&#39;94048158253989888&#39;]}&gt;,
+COOKIES:{},
+META:{&#39;ALLUSERSPROFILE&#39;: &#39;C:\\ProgramData&#39;,
+ &#39;APPDATA&#39;: &#39;C:\\Users\\Ahmed H.Ali\\AppData\\Roaming&#39;,
+ &#39;BURN_AUTOPLAY&#39;: &#39;C:\\Program Files (x86)\\Roxio\\OEM\\Roxio Burn\\&#39;,
+ &#39;CLASSPATH&#39;: &#39;.;C:\\Program Files (x86)\\Java\\jre6\\lib\\ext\\QTJava.zip&#39;,
+ &#39;COMMONPROGRAMFILES&#39;: &#39;C:\\Program Files (x86)\\Common Files&#39;,
+ &#39;COMMONPROGRAMFILES(X86)&#39;: &#39;C:\\Program Files (x86)\\Common Files&#39;,
+ &#39;COMMONPROGRAMW6432&#39;: &#39;C:\\Program Files\\Common Files&#39;,
+ &#39;COMPUTERNAME&#39;: &#39;AALI-PC&#39;,
+ &#39;COMSPEC&#39;: &#39;C:\\Windows\\system32\\cmd.exe&#39;,
+ &#39;CONTENT_LENGTH&#39;: &#39;7089&#39;,
+ &#39;CONTENT_TYPE&#39;: &#39;application/x-www-form-urlencoded&#39;,
+ &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;TweetNadwa.settings&#39;,
+ &#39;EMC_AUTOPLAY&#39;: &#39;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\&#39;,
+ &#39;FP_NO_HOST_CHECK&#39;: &#39;NO&#39;,
+ &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,
+ &#39;HOMEDRIVE&#39;: &#39;C:&#39;,
+ &#39;HOMEPATH&#39;: &#39;\\Users\\Ahmed H.Ali&#39;,
+ &#39;HTTP_HOST&#39;: &#39;127.0.0.1:8000&#39;,
+ &#39;HTTP_USER_AGENT&#39;: &#39;Python-urllib/1.17&#39;,
+ &#39;JAVA_HOME&#39;: &#39;C:\\Program Files (x86)\\Java\\jdk1.6.0_02&#39;,
+ &#39;LOCALAPPDATA&#39;: &#39;C:\\Users\\Ahmed H.Ali\\AppData\\Local&#39;,
+ &#39;LOGONSERVER&#39;: &#39;\\\\AALI-PC&#39;,
+ &#39;NUMBER_OF_PROCESSORS&#39;: &#39;4&#39;,
+ &#39;OS&#39;: &#39;Windows_NT&#39;,
+ &#39;PATH&#39;: &#39;E:\\Perl\\bin\\;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\Dell\\DW WLAN Card;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;C:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\syswow64;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Subversion\\bin;C:\\Python25;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;E:\\Programs\\Programming\\Tools\\apache-maven-2.2.1\\bin;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin\\;C:\\Program Files (x86)\\Java\\jre1.6.0_02\\lib;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\;C:\\Program Files (x86)\\Common Files\\Symbian\\tools;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin;\\epoc32\\tools\\sbs\\bin;C:\\Program Files (x86)\\CSL Arm Toolchain\\bin;C:\\Program Files (x86)\\MATLAB\\R2007b\\bin;C:\\Program Files (x86)\\MATLAB\\R2007b\\bin\\win32;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\Dell\\DW WLAN Card;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;C:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\syswow64;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Subversion\\bin;C:\\Python25;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;E:\\Programs\\Programming\\Tools\\apache-maven-2.2.1\\bin;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin\\;C:\\Program Files (x86)\\Java\\jre1.6.0_02\\lib;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\;C:\\Program Files (x86)\\Common Files\\Symbian\\tools&#39;,
+ &#39;PATHEXT&#39;: &#39;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC&#39;,
+ &#39;PATH_INFO&#39;: u&#39;/saveStatus&#39;,
+ &#39;PROCESSOR_ARCHITECTURE&#39;: &#39;x86&#39;,
+ &#39;PROCESSOR_ARCHITEW6432&#39;: &#39;AMD64&#39;,
+ &#39;PROCESSOR_IDENTIFIER&#39;: &#39;Intel64 Family 6 Model 37 Stepping 5, GenuineIntel&#39;,
+ &#39;PROCESSOR_LEVEL&#39;: &#39;6&#39;,
+ &#39;PROCESSOR_REVISION&#39;: &#39;2505&#39;,
+ &#39;PROGRAMDATA&#39;: &#39;C:\\ProgramData&#39;,
+ &#39;PROGRAMFILES&#39;: &#39;C:\\Program Files (x86)&#39;,
+ &#39;PROGRAMFILES(X86)&#39;: &#39;C:\\Program Files (x86)&#39;,
+ &#39;PROGRAMW6432&#39;: &#39;C:\\Program Files&#39;,
+ &#39;PROMPT&#39;: &#39;$P$G&#39;,
+ &#39;PSMODULEPATH&#39;: &#39;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\&#39;,
+ &#39;PUBLIC&#39;: &#39;C:\\Users\\Public&#39;,
+ &#39;QTJAVA&#39;: &#39;C:\\Program Files (x86)\\Java\\jre6\\lib\\ext\\QTJava.zip&#39;,
+ &#39;QUERY_STRING&#39;: &#39;&#39;,
+ &#39;RCAUTOPLAY&#39;: &#39;C:\\Program Files (x86)\\Roxio\\OEM\\Roxio Central 5\\&#39;,
+ &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,
+ &#39;REMOTE_HOST&#39;: &#39;&#39;,
+ &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
+ &#39;RUN_MAIN&#39;: &#39;true&#39;,
+ &#39;SBS_GCCE441BIN&#39;: &#39;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin&#39;,
+ &#39;SBS_HOME&#39;: &#39;\\epoc32\\tools\\sbs&#39;,
+ &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
+ &#39;SERVER_NAME&#39;: &#39;aali-PC&#39;,
+ &#39;SERVER_PORT&#39;: &#39;8000&#39;,
+ &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.0&#39;,
+ &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.6.3&#39;,
+ &#39;SESSIONNAME&#39;: &#39;Console&#39;,
+ &#39;SYSTEMDRIVE&#39;: &#39;C:&#39;,
+ &#39;SYSTEMROOT&#39;: &#39;C:\\Windows&#39;,
+ &#39;TEMP&#39;: &#39;C:\\Users\\AHMEDH~1.ALI\\AppData\\Local\\Temp&#39;,
+ &#39;TMP&#39;: &#39;C:\\Users\\AHMEDH~1.ALI\\AppData\\Local\\Temp&#39;,
+ &#39;USERDOMAIN&#39;: &#39;aali-PC&#39;,
+ &#39;USERNAME&#39;: &#39;Ahmed H.Ali&#39;,
+ &#39;USERPROFILE&#39;: &#39;C:\\Users\\Ahmed H.Ali&#39;,
+ &#39;WINDIR&#39;: &#39;C:\\Windows&#39;,
+ &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x005840C0&gt;,
+ &#39;wsgi.file_wrapper&#39;: &lt;class &#39;django.core.servers.basehttp.FileWrapper&#39;&gt;,
+ &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x02F648F0&gt;,
+ &#39;wsgi.multiprocess&#39;: False,
+ &#39;wsgi.multithread&#39;: True,
+ &#39;wsgi.run_once&#39;: False,
+ &#39;wsgi.url_scheme&#39;: &#39;http&#39;,
+ &#39;wsgi.version&#39;: (1, 0)}&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>tweetID</td>
+                    <td class="code"><pre>u&#39;94033722021654528&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>entities</td>
+                    <td class="code"><pre>u&quot;{u&#39;user_mentions&#39;: [{u&#39;indices&#39;: [3, 16], u&#39;id&#39;: 131865873, u&#39;screen_name&#39;: u&#39;CarlosLatuff&#39;, u&#39;name&#39;: u&#39;Carlos Latuff&#39;, u&#39;id_str&#39;: u&#39;131865873&#39;}, {u&#39;indices&#39;: [93, 104], u&#39;id&#39;: 89221733, u&#39;screen_name&#39;: u&#39;Hazem_Azim&#39;, u&#39;name&#39;: u&#39;Dr. Hazem Abdelazim&#39;, u&#39;id_str&#39;: u&#39;89221733&#39;}], u&#39;hashtags&#39;: [{u&#39;indices&#39;: [18, 26], u&#39;text&#39;: u&#39;Cartoon&#39;}, {u&#39;indices&#39;: [29, 34], u&#39;text&#39;: u&#39;SCAF&#39;}, {u&#39;indices&#39;: [69, 76], u&#39;text&#39;: u&#39;Tahrir&#39;}, {u&#39;indices&#39;: [77, 83], u&#39;text&#39;: u&#39;Egypt&#39;}, {u&#39;indices&#39;: [84, 90], u&#39;text&#39;: u&#39;Jan25&#39;}], u&#39;urls&#39;: [{u&#39;indices&#39;: [105, 130], u&#39;url&#39;: u&#39;http://twitpic.com/5th7it&#39;, u&#39;expanded_url&#39;: None}]}&quot;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>user</td>
+                    <td class="code"><pre>u&quot;{u&#39;follow_request_sent&#39;: None, u&#39;profile_use_background_image&#39;: True, u&#39;profile_background_image_url_https&#39;: u&#39;https://si0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;verified&#39;: False, u&#39;profile_image_url_https&#39;: u&#39;https://si0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;profile_sidebar_fill_color&#39;: u&#39;DDEEF6&#39;, u&#39;id&#39;: 243340136, u&#39;profile_text_color&#39;: u&#39;333333&#39;, u&#39;followers_count&#39;: 16, u&#39;protected&#39;: False, u&#39;id_str&#39;: u&#39;243340136&#39;, u&#39;default_profile_image&#39;: False, u&#39;location&#39;: u&#39;Cairo, Egypt.&#39;, u&#39;utc_offset&#39;: 7200, u&#39;statuses_count&#39;: 536, u&#39;description&#39;: u&#39;Getting old, Gracefully.&#39;, u&#39;friends_count&#39;: 143, u&#39;profile_link_color&#39;: u&#39;0084B4&#39;, u&#39;profile_image_url&#39;: u&#39;http://a0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;notifications&#39;: None, u&#39;show_all_inline_media&#39;: False, u&#39;geo_enabled&#39;: True, u&#39;profile_background_color&#39;: u&#39;C0DEED&#39;, u&#39;profile_background_image_url&#39;: u&#39;http://a0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;name&#39;: u&#39;The Mo&#39;, u&#39;lang&#39;: u&#39;en&#39;, u&#39;following&#39;: None, u&#39;profile_background_tile&#39;: False, u&#39;favourites_count&#39;: 14, u&#39;screen_name&#39;: u&#39;themo01&#39;, u&#39;url&#39;: None, u&#39;created_at&#39;: u&#39;Wed Jan 26 20:55:14 +0000 2011&#39;, u&#39;contributors_enabled&#39;: False, u&#39;time_zone&#39;: u&#39;Cairo&#39;, u&#39;profile_sidebar_border_color&#39;: u&#39;C0DEED&#39;, u&#39;default_profile&#39;: True, u&#39;is_translator&#39;: False, u&#39;listed_count&#39;: 0}&quot;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\base.py</code> in <code>save</code>
+
+          
+            <div class="context" id="c49724752">
+              
+                <ol start="453" class="pre-context" id="pre49724752"><li onclick="toggle('pre49724752', 'post49724752')"><pre></pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>        The &#39;force_insert&#39; and &#39;force_update&#39; parameters can be used to insist</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>        that the &quot;save&quot; must be an SQL insert or update (or equivalent for</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>        non-SQL backends), respectively. Normally, they should not be set.</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>        if force_insert and force_update:</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>            raise ValueError(&quot;Cannot force both insert and updating in model saving.&quot;)</pre></li></ol>
+              
+              <ol start="460" class="context-line"><li onclick="toggle('pre49724752', 'post49724752')"><pre>        self.save_base(using=using, force_insert=force_insert, force_update=force_update)</pre> <span>...</span></li></ol>
+              
+                <ol start='461' class="post-context" id="post49724752"><li onclick="toggle('pre49724752', 'post49724752')"><pre></pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>    save.alters_data = True</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre></pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>    def save_base(self, raw=False, cls=None, origin=None, force_insert=False,</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>            force_update=False, using=None):</pre></li><li onclick="toggle('pre49724752', 'post49724752')"><pre>        &quot;&quot;&quot;</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49724752')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49724752">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>using</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;Status: Status object&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>force_update</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>force_insert</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\base.py</code> in <code>save_base</code>
+
+          
+            <div class="context" id="c49725392">
+              
+                <ol start="536" class="pre-context" id="pre49725392"><li onclick="toggle('pre49725392', 'post49725392')"><pre>                    order_value = manager.using(using).filter(**{field.name: getattr(self, field.attname)}).count()</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                    self._order = order_value</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre></pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                if not pk_set:</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                    if force_update:</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                        raise ValueError(&quot;Cannot force an update in save() with no primary key.&quot;)</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                    values = [(f, f.get_db_prep_save(raw and getattr(self, f.attname) or f.pre_save(self, True), connection=connection))</pre></li></ol>
+              
+              <ol start="543" class="context-line"><li onclick="toggle('pre49725392', 'post49725392')"><pre>                        for f in meta.local_fields if not isinstance(f, AutoField)]</pre> <span>...</span></li></ol>
+              
+                <ol start='544' class="post-context" id="post49725392"><li onclick="toggle('pre49725392', 'post49725392')"><pre>                else:</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                    values = [(f, f.get_db_prep_save(raw and getattr(self, f.attname) or f.pre_save(self, True), connection=connection))</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                        for f in meta.local_fields]</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre></pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre>                record_exists = False</pre></li><li onclick="toggle('pre49725392', 'post49725392')"><pre></pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49725392')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49725392">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>origin</td>
+                    <td class="code"><pre>&lt;class &#39;Nadwa.models.Status&#39;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>non_pks</td>
+                    <td class="code"><pre>[&lt;django.db.models.fields.BooleanField object at 0x02E38470&gt;,
+ &lt;django.db.models.fields.BooleanField object at 0x02E38490&gt;,
+ &lt;django.db.models.fields.BooleanField object at 0x02E384B0&gt;,
+ &lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;,
+ &lt;django.db.models.fields.DateTimeField object at 0x02E384F0&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38510&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38550&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38590&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E385D0&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38610&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38650&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38690&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E386D0&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38710&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38750&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38790&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E387D0&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E38810&gt;,
+ &lt;django.db.models.fields.TextField object at 0x02E38850&gt;,
+ &lt;django.db.models.fields.TextField object at 0x02E38870&gt;,
+ &lt;django.db.models.fields.TextField object at 0x02E38890&gt;,
+ &lt;django.db.models.fields.CharField object at 0x02E388B0&gt;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>f</td>
+                    <td class="code"><pre>&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;Status: Status object&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>force_update</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>connection</td>
+                    <td class="code"><pre>&lt;django.db.backends.sqlite3.base.DatabaseWrapper object at 0x02C9A660&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>raw</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>manager</td>
+                    <td class="code"><pre>&lt;django.db.models.manager.Manager object at 0x02E38AF0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>meta</td>
+                    <td class="code"><pre>&lt;Options for Status&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>pk_val</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>using</td>
+                    <td class="code"><pre>&#39;default&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>pk_set</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>org</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>_[3]</td>
+                    <td class="code"><pre>[(&lt;django.db.models.fields.BooleanField object at 0x02E38470&gt;, True),
+ (&lt;django.db.models.fields.BooleanField object at 0x02E38490&gt;, True),
+ (&lt;django.db.models.fields.BooleanField object at 0x02E384B0&gt;, True)]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>&lt;class &#39;Nadwa.models.Status&#39;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>force_insert</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>record_exists</td>
+                    <td class="code"><pre>True</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py</code> in <code>inner</code>
+
+          
+            <div class="context" id="c49725192">
+              
+                <ol start="21" class="pre-context" id="pre49725192"><li onclick="toggle('pre49725192', 'post49725192')"><pre>        if &#39;connection&#39; not in kwargs:</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>            from django.db import connection</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>            kwargs[&#39;connection&#39;] = connection</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>            warn(&quot;%s has been called without providing a connection argument. &quot; %</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>                func.__name__, DeprecationWarning,</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>                stacklevel=2)</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>        if updated:</pre></li></ol>
+              
+              <ol start="28" class="context-line"><li onclick="toggle('pre49725192', 'post49725192')"><pre>            return func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start='29' class="post-context" id="post49725192"><li onclick="toggle('pre49725192', 'post49725192')"><pre>        if &#39;connection&#39; in kwargs:</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>            del kwargs[&#39;connection&#39;]</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>        return func(*args, **kwargs)</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>    return inner</pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre></pre></li><li onclick="toggle('pre49725192', 'post49725192')"><pre>def call_with_connection_and_prepared(func):</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49725192')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49725192">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>updated</td>
+                    <td class="code"><pre>&#39;kwargs&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;, u&#39;100+&#39;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>func</td>
+                    <td class="code"><pre>&lt;unbound method IntegerField.inner&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{&#39;connection&#39;: &lt;django.db.backends.sqlite3.base.DatabaseWrapper object at 0x02C9A660&gt;}</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py</code> in <code>inner</code>
+
+          
+            <div class="context" id="c49724832">
+              
+                <ol start="21" class="pre-context" id="pre49724832"><li onclick="toggle('pre49724832', 'post49724832')"><pre>        if &#39;connection&#39; not in kwargs:</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>            from django.db import connection</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>            kwargs[&#39;connection&#39;] = connection</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>            warn(&quot;%s has been called without providing a connection argument. &quot; %</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>                func.__name__, DeprecationWarning,</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>                stacklevel=2)</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>        if updated:</pre></li></ol>
+              
+              <ol start="28" class="context-line"><li onclick="toggle('pre49724832', 'post49724832')"><pre>            return func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start='29' class="post-context" id="post49724832"><li onclick="toggle('pre49724832', 'post49724832')"><pre>        if &#39;connection&#39; in kwargs:</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>            del kwargs[&#39;connection&#39;]</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>        return func(*args, **kwargs)</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>    return inner</pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre></pre></li><li onclick="toggle('pre49724832', 'post49724832')"><pre>def call_with_connection_and_prepared(func):</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49724832')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49724832">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>updated</td>
+                    <td class="code"><pre>True</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;, u&#39;100+&#39;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>func</td>
+                    <td class="code"><pre>&lt;unbound method Field.get_db_prep_save&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{&#39;connection&#39;: &lt;django.db.backends.sqlite3.base.DatabaseWrapper object at 0x02C9A660&gt;}</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\fields\__init__.py</code> in <code>get_db_prep_save</code>
+
+          
+            <div class="context" id="c49081400">
+              
+                <ol start="269" class="pre-context" id="pre49081400"><li onclick="toggle('pre49081400', 'post49081400')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>        if not prepared:</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>            value = self.get_prep_value(value)</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>        return value</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre></pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>    def get_db_prep_save(self, value, connection):</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>        &quot;Returns field&#39;s value prepared for saving into a database.&quot;</pre></li></ol>
+              
+              <ol start="276" class="context-line"><li onclick="toggle('pre49081400', 'post49081400')"><pre>        return self.get_db_prep_value(value, connection=connection, prepared=False)</pre> <span>...</span></li></ol>
+              
+                <ol start='277' class="post-context" id="post49081400"><li onclick="toggle('pre49081400', 'post49081400')"><pre></pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>    def get_prep_lookup(self, lookup_type, value):</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>        &quot;Perform preliminary non-db specific lookup checks and conversions&quot;</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>        if hasattr(value, &#39;prepare&#39;):</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>            return value.prepare()</pre></li><li onclick="toggle('pre49081400', 'post49081400')"><pre>        if hasattr(value, &#39;_prepare&#39;):</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49081400')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49081400">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>connection</td>
+                    <td class="code"><pre>&lt;django.db.backends.sqlite3.base.DatabaseWrapper object at 0x02C9A660&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>value</td>
+                    <td class="code"><pre>u&#39;100+&#39;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py</code> in <code>inner</code>
+
+          
+            <div class="context" id="c49081280">
+              
+                <ol start="46" class="pre-context" id="pre49081280"><li onclick="toggle('pre49081280', 'post49081280')"><pre>        if &#39;connection&#39; not in kwargs:</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>            from django.db import connection</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>            kwargs[&#39;connection&#39;] = connection</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>            warn(&quot;%s has been called without providing a connection argument. &quot; %</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>                func.__name__, DeprecationWarning,</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>                stacklevel=2)</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>        if updated:</pre></li></ol>
+              
+              <ol start="53" class="context-line"><li onclick="toggle('pre49081280', 'post49081280')"><pre>            return func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start='54' class="post-context" id="post49081280"><li onclick="toggle('pre49081280', 'post49081280')"><pre>        if &#39;connection&#39; in kwargs:</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>            del kwargs[&#39;connection&#39;]</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>        if &#39;prepared&#39; in kwargs:</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>            del kwargs[&#39;prepared&#39;]</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>        return func(*args, **kwargs)</pre></li><li onclick="toggle('pre49081280', 'post49081280')"><pre>    return inner</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49081280')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49081280">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>updated</td>
+                    <td class="code"><pre>&#39;kwargs&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;, u&#39;100+&#39;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>func</td>
+                    <td class="code"><pre>&lt;unbound method IntegerField.inner&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{&#39;connection&#39;: &lt;django.db.backends.sqlite3.base.DatabaseWrapper object at 0x02C9A660&gt;,
+ &#39;prepared&#39;: False}</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py</code> in <code>inner</code>
+
+          
+            <div class="context" id="c49082080">
+              
+                <ol start="46" class="pre-context" id="pre49082080"><li onclick="toggle('pre49082080', 'post49082080')"><pre>        if &#39;connection&#39; not in kwargs:</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>            from django.db import connection</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>            kwargs[&#39;connection&#39;] = connection</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>            warn(&quot;%s has been called without providing a connection argument. &quot; %</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>                func.__name__, DeprecationWarning,</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>                stacklevel=2)</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>        if updated:</pre></li></ol>
+              
+              <ol start="53" class="context-line"><li onclick="toggle('pre49082080', 'post49082080')"><pre>            return func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start='54' class="post-context" id="post49082080"><li onclick="toggle('pre49082080', 'post49082080')"><pre>        if &#39;connection&#39; in kwargs:</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>            del kwargs[&#39;connection&#39;]</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>        if &#39;prepared&#39; in kwargs:</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>            del kwargs[&#39;prepared&#39;]</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>        return func(*args, **kwargs)</pre></li><li onclick="toggle('pre49082080', 'post49082080')"><pre>    return inner</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49082080')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49082080">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>updated</td>
+                    <td class="code"><pre>True</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;, u&#39;100+&#39;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>func</td>
+                    <td class="code"><pre>&lt;unbound method Field.get_db_prep_value&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{&#39;connection&#39;: &lt;django.db.backends.sqlite3.base.DatabaseWrapper object at 0x02C9A660&gt;,
+ &#39;prepared&#39;: False}</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\fields\__init__.py</code> in <code>get_db_prep_value</code>
+
+          
+            <div class="context" id="c49081560">
+              
+                <ol start="264" class="pre-context" id="pre49081560"><li onclick="toggle('pre49081560', 'post49081560')"><pre>        &quot;&quot;&quot;Returns field&#39;s value prepared for interacting with the database</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>        backend.</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre></pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>        Used by the default implementations of ``get_db_prep_save``and</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>        `get_db_prep_lookup```</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>        if not prepared:</pre></li></ol>
+              
+              <ol start="271" class="context-line"><li onclick="toggle('pre49081560', 'post49081560')"><pre>            value = self.get_prep_value(value)</pre> <span>...</span></li></ol>
+              
+                <ol start='272' class="post-context" id="post49081560"><li onclick="toggle('pre49081560', 'post49081560')"><pre>        return value</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre></pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>    def get_db_prep_save(self, value, connection):</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>        &quot;Returns field&#39;s value prepared for saving into a database.&quot;</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre>        return self.get_db_prep_value(value, connection=connection, prepared=False)</pre></li><li onclick="toggle('pre49081560', 'post49081560')"><pre></pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49081560')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49081560">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>connection</td>
+                    <td class="code"><pre>&lt;django.db.backends.sqlite3.base.DatabaseWrapper object at 0x02C9A660&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>value</td>
+                    <td class="code"><pre>u&#39;100+&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>prepared</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame">
+          <code>c:\Python26\lib\site-packages\django\db\models\fields\__init__.py</code> in <code>get_prep_value</code>
+
+          
+            <div class="context" id="c49082040">
+              
+                <ol start="869" class="pre-context" id="pre49082040"><li onclick="toggle('pre49082040', 'post49082040')"><pre>        &#39;invalid&#39;: _(&quot;This value must be an integer.&quot;),</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>    }</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>    description = _(&quot;Integer&quot;)</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre></pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>    def get_prep_value(self, value):</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>        if value is None:</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>            return None</pre></li></ol>
+              
+              <ol start="876" class="context-line"><li onclick="toggle('pre49082040', 'post49082040')"><pre>        return int(value)</pre> <span>...</span></li></ol>
+              
+                <ol start='877' class="post-context" id="post49082040"><li onclick="toggle('pre49082040', 'post49082040')"><pre></pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>    def get_prep_lookup(self, lookup_type, value):</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>        if (lookup_type == &#39;gte&#39; or lookup_type == &#39;lt&#39;) \</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>           and isinstance(value, float):</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>                value = math.ceil(value)</pre></li><li onclick="toggle('pre49082040', 'post49082040')"><pre>        return super(IntegerField, self).get_prep_lookup(lookup_type, value)</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '49082040')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v49082040">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.db.models.fields.IntegerField object at 0x02E384D0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>value</td>
+                    <td class="code"><pre>u&#39;100+&#39;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+    </ul>
+  </div>
+  
+  <form action="http://dpaste.com/" name="pasteform" id="pasteform" method="post">
+
+  <div id="pastebinTraceback" class="pastebin">
+    <input type="hidden" name="language" value="PythonConsole">
+    <input type="hidden" name="title" value="ValueError at /saveStatus">
+    <input type="hidden" name="source" value="Django Dpaste Agent">
+    <input type="hidden" name="poster" value="Django">
+    <textarea name="content" id="traceback_area" cols="140" rows="25">
+Environment:
+
+
+Request Method: POST
+Request URL: http://127.0.0.1:8000/saveStatus
+
+Django Version: 1.3 rc 1
+Python Version: 2.6.3
+Installed Applications:
+[&#39;django.contrib.auth&#39;,
+ &#39;django.contrib.contenttypes&#39;,
+ &#39;django.contrib.sessions&#39;,
+ &#39;django.contrib.sites&#39;,
+ &#39;django.contrib.messages&#39;,
+ &#39;django.contrib.staticfiles&#39;,
+ &#39;Nadwa&#39;,
+ &#39;django.contrib.admin&#39;]
+Installed Middleware:
+(&#39;django.middleware.common.CommonMiddleware&#39;,
+ &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
+ &#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;,
+ &#39;django.contrib.messages.middleware.MessageMiddleware&#39;)
+
+
+Traceback:
+File "c:\Python26\lib\site-packages\django\core\handlers\base.py" in get_response
+  111.                         response = callback(request, *callback_args, **callback_kwargs)
+File "E:\Work\src\python\TweetNadwa\src\TweetNadwa\Nadwa\views.py" in saveStatus
+  284.     status.save();
+File "c:\Python26\lib\site-packages\django\db\models\base.py" in save
+  460.         self.save_base(using=using, force_insert=force_insert, force_update=force_update)
+File "c:\Python26\lib\site-packages\django\db\models\base.py" in save_base
+  543.                         for f in meta.local_fields if not isinstance(f, AutoField)]
+File "c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py" in inner
+  28.             return func(*args, **kwargs)
+File "c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py" in inner
+  28.             return func(*args, **kwargs)
+File "c:\Python26\lib\site-packages\django\db\models\fields\__init__.py" in get_db_prep_save
+  276.         return self.get_db_prep_value(value, connection=connection, prepared=False)
+File "c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py" in inner
+  53.             return func(*args, **kwargs)
+File "c:\Python26\lib\site-packages\django\db\models\fields\subclassing.py" in inner
+  53.             return func(*args, **kwargs)
+File "c:\Python26\lib\site-packages\django\db\models\fields\__init__.py" in get_db_prep_value
+  271.             value = self.get_prep_value(value)
+File "c:\Python26\lib\site-packages\django\db\models\fields\__init__.py" in get_prep_value
+  876.         return int(value)
+
+Exception Type: ValueError at /saveStatus
+Exception Value: invalid literal for int() with base 10: &#39;100+&#39;
+</textarea>
+  <br><br>
+  <input type="submit" value="Share this traceback on a public Web site">
+  </div>
+</form>
+</div>
+
+
+
+<div id="requestinfo">
+  <h2>Request information</h2>
+
+
+  <h3 id="get-info">GET</h3>
+  
+    <p>No GET data</p>
+  
+
+  <h3 id="post-info">POST</h3>
+  
+    <table class="req">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>user</td>
+            <td class="code"><pre>u&quot;{u&#39;follow_request_sent&#39;: None, u&#39;profile_use_background_image&#39;: True, u&#39;profile_background_image_url_https&#39;: u&#39;https://si0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;verified&#39;: False, u&#39;profile_image_url_https&#39;: u&#39;https://si0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;profile_sidebar_fill_color&#39;: u&#39;DDEEF6&#39;, u&#39;id&#39;: 243340136, u&#39;profile_text_color&#39;: u&#39;333333&#39;, u&#39;followers_count&#39;: 16, u&#39;protected&#39;: False, u&#39;id_str&#39;: u&#39;243340136&#39;, u&#39;default_profile_image&#39;: False, u&#39;location&#39;: u&#39;Cairo, Egypt.&#39;, u&#39;utc_offset&#39;: 7200, u&#39;statuses_count&#39;: 536, u&#39;description&#39;: u&#39;Getting old, Gracefully.&#39;, u&#39;friends_count&#39;: 143, u&#39;profile_link_color&#39;: u&#39;0084B4&#39;, u&#39;profile_image_url&#39;: u&#39;http://a0.twimg.com/profile_images/1362055470/profile_normal.jpg&#39;, u&#39;notifications&#39;: None, u&#39;show_all_inline_media&#39;: False, u&#39;geo_enabled&#39;: True, u&#39;profile_background_color&#39;: u&#39;C0DEED&#39;, u&#39;profile_background_image_url&#39;: u&#39;http://a0.twimg.com/images/themes/theme1/bg.png&#39;, u&#39;name&#39;: u&#39;The Mo&#39;, u&#39;lang&#39;: u&#39;en&#39;, u&#39;following&#39;: None, u&#39;profile_background_tile&#39;: False, u&#39;favourites_count&#39;: 14, u&#39;screen_name&#39;: u&#39;themo01&#39;, u&#39;url&#39;: None, u&#39;created_at&#39;: u&#39;Wed Jan 26 20:55:14 +0000 2011&#39;, u&#39;contributors_enabled&#39;: False, u&#39;time_zone&#39;: u&#39;Cairo&#39;, u&#39;profile_sidebar_border_color&#39;: u&#39;C0DEED&#39;, u&#39;default_profile&#39;: True, u&#39;is_translator&#39;: False, u&#39;listed_count&#39;: 0}&quot;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>favorited</td>
+            <td class="code"><pre>u&#39;False&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>retweeted_status</td>
+            <td class="code"><pre>u&#39;{u\&#39;user\&#39;: {u\&#39;follow_request_sent\&#39;: None, u\&#39;profile_use_background_image\&#39;: True, u\&#39;profile_background_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;verified\&#39;: False, u\&#39;profile_image_url_https\&#39;: u\&#39;https://si0.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;profile_sidebar_fill_color\&#39;: u\&#39;f6ffd1\&#39;, u\&#39;id\&#39;: 131865873, u\&#39;profile_text_color\&#39;: u\&#39;333333\&#39;, u\&#39;followers_count\&#39;: 14067, u\&#39;protected\&#39;: False, u\&#39;id_str\&#39;: u\&#39;131865873\&#39;, u\&#39;default_profile_image\&#39;: False, u\&#39;location\&#39;: u\&#39;Rio de Janeiro\&#39;, u\&#39;utc_offset\&#39;: -10800, u\&#39;statuses_count\&#39;: 8012, u\&#39;description\&#39;: u&quot;Cartunista\\r\\nE-mail: carlos.latuff@gmail.com\\r\\nMSN: latuffcarlos@hotmail.com\\r\\nMobile: +55 21 76552333\\r\\nDON\&#39;T TRUST ON WIKIPEDIA!&quot;, u\&#39;friends_count\&#39;: 6, u\&#39;profile_link_color\&#39;: u\&#39;0099CC\&#39;, u\&#39;profile_image_url\&#39;: u\&#39;http://a1.twimg.com/profile_images/1393645794/Latuff_normal.jpg\&#39;, u\&#39;notifications\&#39;: None, u\&#39;show_all_inline_media\&#39;: True, u\&#39;geo_enabled\&#39;: True, u\&#39;profile_background_color\&#39;: u\&#39;FFF04D\&#39;, u\&#39;profile_background_image_url\&#39;: u\&#39;http://a3.twimg.com/profile_background_images/256220975/220px-Mapuche_kultrun.png\&#39;, u\&#39;name\&#39;: u\&#39;Carlos Latuff\&#39;, u\&#39;lang\&#39;: u\&#39;en\&#39;, u\&#39;following\&#39;: None, u\&#39;profile_background_tile\&#39;: True, u\&#39;favourites_count\&#39;: 20, u\&#39;screen_name\&#39;: u\&#39;CarlosLatuff\&#39;, u\&#39;url\&#39;: u\&#39;http://twitpic.com/photos/CarlosLatuff\&#39;, u\&#39;created_at\&#39;: u\&#39;Sun Apr 11 15:39:49 +0000 2010\&#39;, u\&#39;contributors_enabled\&#39;: False, u\&#39;time_zone\&#39;: u\&#39;Brasilia\&#39;, u\&#39;profile_sidebar_border_color\&#39;: u\&#39;fff8ad\&#39;, u\&#39;default_profile\&#39;: False, u\&#39;is_translator\&#39;: False, u\&#39;listed_count\&#39;: 466}, u\&#39;favorited\&#39;: False, u\&#39;entities\&#39;: {u\&#39;user_mentions\&#39;: [{u\&#39;indices\&#39;: [75, 86], u\&#39;id\&#39;: 89221733, u\&#39;screen_name\&#39;: u\&#39;Hazem_Azim\&#39;, u\&#39;name\&#39;: u\&#39;Dr. Hazem Abdelazim\&#39;, u\&#39;id_str\&#39;: u\&#39;89221733\&#39;}], u\&#39;hashtags\&#39;: [{u\&#39;indices\&#39;: [0, 8], u\&#39;text\&#39;: u\&#39;Cartoon\&#39;}, {u\&#39;indices\&#39;: [11, 16], u\&#39;text\&#39;: u\&#39;SCAF\&#39;}, {u\&#39;indices\&#39;: [51, 58], u\&#39;text\&#39;: u\&#39;Tahrir\&#39;}, {u\&#39;indices\&#39;: [59, 65], u\&#39;text\&#39;: u\&#39;Egypt\&#39;}, {u\&#39;indices\&#39;: [66, 72], u\&#39;text\&#39;: u\&#39;Jan25\&#39;}], u\&#39;urls\&#39;: [{u\&#39;indices\&#39;: [87, 112], u\&#39;url\&#39;: u\&#39;http://twitpic.com/5th7it\&#39;, u\&#39;expanded_url\&#39;: None}]}, u\&#39;contributors\&#39;: None, u\&#39;truncated\&#39;: False, u\&#39;text\&#39;: u&quot;#Cartoon - #SCAF \&#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;, u\&#39;created_at\&#39;: u\&#39;Thu Jul 21 13:19:21 +0000 2011\&#39;, u\&#39;retweeted\&#39;: False, u\&#39;in_reply_to_status_id_str\&#39;: None, u\&#39;coordinates\&#39;: None, u\&#39;id\&#39;: 94033722021654528L, u\&#39;source\&#39;: u\&#39;&lt;a href=&quot;http://twitpic.com&quot; rel=&quot;nofollow&quot;&gt;Twitpic&lt;/a&gt;\&#39;, u\&#39;in_reply_to_status_id\&#39;: None, u\&#39;in_reply_to_screen_name\&#39;: None, u\&#39;in_reply_to_user_id\&#39;: None, u\&#39;place\&#39;: None, u\&#39;retweet_count\&#39;: u\&#39;100+\&#39;, u\&#39;geo\&#39;: None, u\&#39;in_reply_to_user_id_str\&#39;: None, u\&#39;id_str\&#39;: u\&#39;94033722021654528\&#39;}&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>contributors</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>truncated</td>
+            <td class="code"><pre>u&#39;False&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>source</td>
+            <td class="code"><pre>u&#39;&lt;a href=&quot;http://www.tweetcaster.com&quot; rel=&quot;nofollow&quot;&gt;TweetCaster&lt;/a&gt;&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>text</td>
+            <td class="code"><pre>u&quot;RT @CarlosLatuff: #Cartoon - #SCAF &#39;s low blow to Hazem Abdel Azim - #Tahrir #Egypt #Jan25 - @Hazem_Azim http://twitpic.com/5th7it&quot;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>created_at</td>
+            <td class="code"><pre>u&#39;Thu Jul 21 14:16:42 +0000 2011&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>retweeted</td>
+            <td class="code"><pre>u&#39;False&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>in_reply_to_status_id_str</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>coordinates</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>id</td>
+            <td class="code"><pre>u&#39;94048158253989888&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>entities</td>
+            <td class="code"><pre>u&quot;{u&#39;user_mentions&#39;: [{u&#39;indices&#39;: [3, 16], u&#39;id&#39;: 131865873, u&#39;screen_name&#39;: u&#39;CarlosLatuff&#39;, u&#39;name&#39;: u&#39;Carlos Latuff&#39;, u&#39;id_str&#39;: u&#39;131865873&#39;}, {u&#39;indices&#39;: [93, 104], u&#39;id&#39;: 89221733, u&#39;screen_name&#39;: u&#39;Hazem_Azim&#39;, u&#39;name&#39;: u&#39;Dr. Hazem Abdelazim&#39;, u&#39;id_str&#39;: u&#39;89221733&#39;}], u&#39;hashtags&#39;: [{u&#39;indices&#39;: [18, 26], u&#39;text&#39;: u&#39;Cartoon&#39;}, {u&#39;indices&#39;: [29, 34], u&#39;text&#39;: u&#39;SCAF&#39;}, {u&#39;indices&#39;: [69, 76], u&#39;text&#39;: u&#39;Tahrir&#39;}, {u&#39;indices&#39;: [77, 83], u&#39;text&#39;: u&#39;Egypt&#39;}, {u&#39;indices&#39;: [84, 90], u&#39;text&#39;: u&#39;Jan25&#39;}], u&#39;urls&#39;: [{u&#39;indices&#39;: [105, 130], u&#39;url&#39;: u&#39;http://twitpic.com/5th7it&#39;, u&#39;expanded_url&#39;: None}]}&quot;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>in_reply_to_status_id</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>in_reply_to_screen_name</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>in_reply_to_user_id</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>place</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>retweet_count</td>
+            <td class="code"><pre>u&#39;100+&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>geo</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>in_reply_to_user_id_str</td>
+            <td class="code"><pre>u&#39;None&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>id_str</td>
+            <td class="code"><pre>u&#39;94048158253989888&#39;</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+  <h3 id="files-info">FILES</h3>
+  
+    <p>No FILES data</p>
+  
+
+
+  <h3 id="cookie-info">COOKIES</h3>
+  
+    <p>No cookie data</p>
+  
+
+  <h3 id="meta-info">META</h3>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>TMP</td>
+          <td class="code"><pre>&#39;C:\\Users\\AHMEDH~1.ALI\\AppData\\Local\\Temp&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMPUTERNAME</td>
+          <td class="code"><pre>&#39;AALI-PC&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_LEVEL</td>
+          <td class="code"><pre>&#39;6&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RUN_MAIN</td>
+          <td class="code"><pre>&#39;true&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERDOMAIN</td>
+          <td class="code"><pre>&#39;aali-PC&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BURN_AUTOPLAY</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\Roxio\\OEM\\Roxio Burn\\&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMC_AUTOPLAY</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#39;WSGIServer/0.1 Python/2.6.3&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PSMODULEPATH</td>
+          <td class="code"><pre>&#39;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>u&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\Common Files&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_IDENTIFIER</td>
+          <td class="code"><pre>&#39;Intel64 Family 6 Model 37 Stepping 5, GenuineIntel&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>&#39;POST&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_REVISION</td>
+          <td class="code"><pre>&#39;2505&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH</td>
+          <td class="code"><pre>&#39;E:\\Perl\\bin\\;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\Dell\\DW WLAN Card;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;C:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\syswow64;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Subversion\\bin;C:\\Python25;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;E:\\Programs\\Programming\\Tools\\apache-maven-2.2.1\\bin;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin\\;C:\\Program Files (x86)\\Java\\jre1.6.0_02\\lib;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\;C:\\Program Files (x86)\\Common Files\\Symbian\\tools;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin;\\epoc32\\tools\\sbs\\bin;C:\\Program Files (x86)\\CSL Arm Toolchain\\bin;C:\\Program Files (x86)\\MATLAB\\R2007b\\bin;C:\\Program Files (x86)\\MATLAB\\R2007b\\bin\\win32;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\Dell\\DW WLAN Card;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\DLLShared\\;C:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;C:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\;C:\\Program Files\\WIDCOMM\\Bluetooth Software\\syswow64;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Subversion\\bin;C:\\Python25;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;E:\\Programs\\Programming\\Tools\\apache-maven-2.2.1\\bin;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin\\;C:\\Program Files (x86)\\Java\\jre1.6.0_02\\lib;C:\\Program Files (x86)\\Java\\jdk1.6.0_02\\bin;C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\;C:\\Program Files (x86)\\Common Files\\Symbian\\tools&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QTJAVA</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\Java\\jre6\\lib\\ext\\QTJava.zip&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMROOT</td>
+          <td class="code"><pre>&#39;C:\\Windows&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_LENGTH</td>
+          <td class="code"><pre>&#39;7089&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>&#39;http&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>&#39;Python-urllib/1.17&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMP</td>
+          <td class="code"><pre>&#39;C:\\Users\\AHMEDH~1.ALI\\AppData\\Local\\Temp&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>&#39;127.0.0.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>&#39;HTTP/1.0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\Common Files&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_ARCHITECTURE</td>
+          <td class="code"><pre>&#39;x86&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SBS_HOME</td>
+          <td class="code"><pre>&#39;\\epoc32\\tools\\sbs&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLUSERSPROFILE</td>
+          <td class="code"><pre>&#39;C:\\ProgramData&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>&#39;8000&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALAPPDATA</td>
+          <td class="code"><pre>&#39;C:\\Users\\Ahmed H.Ali\\AppData\\Local&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEPATH</td>
+          <td class="code"><pre>&#39;\\Users\\Ahmed H.Ali&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SBS_GCCE441BIN</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\CodeSourcery\\Sourcery G++ Lite\\bin&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>JAVA_HOME</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\Java\\jdk1.6.0_02&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMW6432</td>
+          <td class="code"><pre>&#39;C:\\Program Files&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERNAME</td>
+          <td class="code"><pre>&#39;Ahmed H.Ali&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGONSERVER</td>
+          <td class="code"><pre>&#39;\\\\AALI-PC&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROMPT</td>
+          <td class="code"><pre>&#39;$P$G&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMSPEC</td>
+          <td class="code"><pre>&#39;C:\\Windows\\system32\\cmd.exe&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMDATA</td>
+          <td class="code"><pre>&#39;C:\\ProgramData&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CLASSPATH</td>
+          <td class="code"><pre>&#39;.;C:\\Program Files (x86)\\Java\\jre6\\lib\\ext\\QTJava.zip&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;socket._fileobject object at 0x02F648F0&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x005840C0&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>&#39;127.0.0.1:8000&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSIONNAME</td>
+          <td class="code"><pre>&#39;Console&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATHEXT</td>
+          <td class="code"><pre>&#39;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>u&#39;/saveStatus&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FP_NO_HOST_CHECK</td>
+          <td class="code"><pre>&#39;NO&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDIR</td>
+          <td class="code"><pre>&#39;C:\\Windows&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.version</td>
+          <td class="code"><pre>(1, 0)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEDRIVE</td>
+          <td class="code"><pre>&#39;C:&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPDATA</td>
+          <td class="code"><pre>&#39;C:\\Users\\Ahmed H.Ali\\AppData\\Roaming&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>&#39;aali-PC&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RCAUTOPLAY</td>
+          <td class="code"><pre>&#39;C:\\Program Files (x86)\\Roxio\\OEM\\Roxio Central 5\\&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_HOST</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMDRIVE</td>
+          <td class="code"><pre>&#39;C:&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>&#39;CGI/1.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_OF_PROCESSORS</td>
+          <td class="code"><pre>&#39;4&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DJANGO_SETTINGS_MODULE</td>
+          <td class="code"><pre>&#39;TweetNadwa.settings&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;application/x-www-form-urlencoded&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_ARCHITEW6432</td>
+          <td class="code"><pre>&#39;AMD64&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMW6432</td>
+          <td class="code"><pre>&#39;C:\\Program Files\\Common Files&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OS</td>
+          <td class="code"><pre>&#39;Windows_NT&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PUBLIC</td>
+          <td class="code"><pre>&#39;C:\\Users\\Public&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERPROFILE</td>
+          <td class="code"><pre>&#39;C:\\Users\\Ahmed H.Ali&#39;</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+  <h3 id="settings-info">Settings</h3>
+  <h4>Using settings module <code>TweetNadwa.settings</code></h4>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Setting</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>&#39;en-us&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#39;TweetNadwa.urls&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_DATABASE_CHARSET</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.messages.storage.user_messages.LegacyFallbackStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_HOST</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_STARTS</td>
+          <td class="code"><pre>(&#39;/cgi-bin/&#39;, &#39;/_vti_bin&#39;, &#39;/_vti_inf&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SEND_BROKEN_LINK_EMAILS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>URL_VALIDATOR_USER_AGENT</td>
+          <td class="code"><pre>&#39;Django/1.3 rc 1 (http://www.djangoproject.com)&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>(&#39;django.contrib.staticfiles.finders.FileSystemFinder&#39;,
+ &#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;sessionid&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMENTS_MODERATORS_GROUP</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%H:%M:%S&#39;, &#39;%H:%M&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{&#39;default&#39;: {&#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
+             &#39;HOST&#39;: &#39;&#39;,
+             &#39;NAME&#39;: &#39;tweetStatus&#39;,
+             &#39;OPTIONS&#39;: {},
+             &#39;PASSWORD&#39;: &#39;********************&#39;,
+             &#39;PORT&#39;: &#39;&#39;,
+             &#39;TEST_CHARSET&#39;: None,
+             &#39;TEST_COLLATION&#39;: None,
+             &#39;TEST_MIRROR&#39;: None,
+             &#39;TEST_NAME&#39;: None,
+             &#39;TIME_ZONE&#39;: &#39;America/Chicago&#39;,
+             &#39;USER&#39;: &#39;&#39;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_DATABASE_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>(&#39;django.core.files.uploadhandler.MemoryFileUploadHandler&#39;,
+ &#39;django.core.files.uploadhandler.TemporaryFileUploadHandler&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;text/html&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#39;F Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.staticfiles.storage.StaticFilesStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{&#39;default&#39;: {&#39;BACKEND&#39;: &#39;django.core.cache.backends.locmem.LocMemCache&#39;,
+             &#39;LOCATION&#39;: &#39;&#39;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#39;root@localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_ENDS</td>
+          <td class="code"><pre>(&#39;mail.pl&#39;, &#39;mailform.pl&#39;, &#39;mail.cgi&#39;, &#39;mailform.cgi&#39;, &#39;favicon.ico&#39;, &#39;.php&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE_CLASSES</td>
+          <td class="code"><pre>(&#39;django.middleware.common.CommonMiddleware&#39;,
+ &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
+ &#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;,
+ &#39;django.contrib.messages.middleware.MessageMiddleware&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#39;,&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;django_language&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRANSACTIONS_MANAGED</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>&#39;django.utils.log.dictConfig&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_LOADERS</td>
+          <td class="code"><pre>(&#39;django.template.loaders.filesystem.Loader&#39;,
+ &#39;django.template.loaders.app_directories.Loader&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.backends.ModelBackend&#39;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_DATABASE_COLLATION</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_BACKEND</td>
+          <td class="code"><pre>&#39;locmem://&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>&#39;django.core.files.storage.FileSystemStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>[&#39;django.contrib.auth&#39;,
+ &#39;django.contrib.contenttypes&#39;,
+ &#39;django.contrib.sessions&#39;,
+ &#39;django.contrib.sites&#39;,
+ &#39;django.contrib.messages&#39;,
+ &#39;django.contrib.staticfiles&#39;,
+ &#39;Nadwa&#39;,
+ &#39;django.contrib.admin&#39;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES</td>
+          <td class="code"><pre>((&#39;ar&#39;, &#39;Arabic&#39;),
+ (&#39;az&#39;, &#39;Azerbaijani&#39;),
+ (&#39;bg&#39;, &#39;Bulgarian&#39;),
+ (&#39;bn&#39;, &#39;Bengali&#39;),
+ (&#39;bs&#39;, &#39;Bosnian&#39;),
+ (&#39;ca&#39;, &#39;Catalan&#39;),
+ (&#39;cs&#39;, &#39;Czech&#39;),
+ (&#39;cy&#39;, &#39;Welsh&#39;),
+ (&#39;da&#39;, &#39;Danish&#39;),
+ (&#39;de&#39;, &#39;German&#39;),
+ (&#39;el&#39;, &#39;Greek&#39;),
+ (&#39;en&#39;, &#39;English&#39;),
+ (&#39;en-gb&#39;, &#39;British English&#39;),
+ (&#39;es&#39;, &#39;Spanish&#39;),
+ (&#39;es-ar&#39;, &#39;Argentinian Spanish&#39;),
+ (&#39;es-mx&#39;, &#39;Mexican Spanish&#39;),
+ (&#39;et&#39;, &#39;Estonian&#39;),
+ (&#39;eu&#39;, &#39;Basque&#39;),
+ (&#39;fa&#39;, &#39;Persian&#39;),
+ (&#39;fi&#39;, &#39;Finnish&#39;),
+ (&#39;fr&#39;, &#39;French&#39;),
+ (&#39;fy-nl&#39;, &#39;Frisian&#39;),
+ (&#39;ga&#39;, &#39;Irish&#39;),
+ (&#39;gl&#39;, &#39;Galician&#39;),
+ (&#39;he&#39;, &#39;Hebrew&#39;),
+ (&#39;hi&#39;, &#39;Hindi&#39;),
+ (&#39;hr&#39;, &#39;Croatian&#39;),
+ (&#39;hu&#39;, &#39;Hungarian&#39;),
+ (&#39;id&#39;, &#39;Indonesian&#39;),
+ (&#39;is&#39;, &#39;Icelandic&#39;),
+ (&#39;it&#39;, &#39;Italian&#39;),
+ (&#39;ja&#39;, &#39;Japanese&#39;),
+ (&#39;ka&#39;, &#39;Georgian&#39;),
+ (&#39;km&#39;, &#39;Khmer&#39;),
+ (&#39;kn&#39;, &#39;Kannada&#39;),
+ (&#39;ko&#39;, &#39;Korean&#39;),
+ (&#39;lt&#39;, &#39;Lithuanian&#39;),
+ (&#39;lv&#39;, &#39;Latvian&#39;),
+ (&#39;mk&#39;, &#39;Macedonian&#39;),
+ (&#39;ml&#39;, &#39;Malayalam&#39;),
+ (&#39;mn&#39;, &#39;Mongolian&#39;),
+ (&#39;nl&#39;, &#39;Dutch&#39;),
+ (&#39;no&#39;, &#39;Norwegian&#39;),
+ (&#39;nb&#39;, &#39;Norwegian Bokmal&#39;),
+ (&#39;nn&#39;, &#39;Norwegian Nynorsk&#39;),
+ (&#39;pa&#39;, &#39;Punjabi&#39;),
+ (&#39;pl&#39;, &#39;Polish&#39;),
+ (&#39;pt&#39;, &#39;Portuguese&#39;),
+ (&#39;pt-br&#39;, &#39;Brazilian Portuguese&#39;),
+ (&#39;ro&#39;, &#39;Romanian&#39;),
+ (&#39;ru&#39;, &#39;Russian&#39;),
+ (&#39;sk&#39;, &#39;Slovak&#39;),
+ (&#39;sl&#39;, &#39;Slovenian&#39;),
+ (&#39;sq&#39;, &#39;Albanian&#39;),
+ (&#39;sr&#39;, &#39;Serbian&#39;),
+ (&#39;sr-latn&#39;, &#39;Serbian Latin&#39;),
+ (&#39;sv&#39;, &#39;Swedish&#39;),
+ (&#39;ta&#39;, &#39;Tamil&#39;),
+ (&#39;te&#39;, &#39;Telugu&#39;),
+ (&#39;th&#39;, &#39;Thai&#39;),
+ (&#39;tr&#39;, &#39;Turkish&#39;),
+ (&#39;uk&#39;, &#39;Ukrainian&#39;),
+ (&#39;ur&#39;, &#39;Urdu&#39;),
+ (&#39;vi&#39;, &#39;Vietnamese&#39;),
+ (&#39;zh-cn&#39;, &#39;Simplified Chinese&#39;),
+ (&#39;zh-tw&#39;, &#39;Traditional Chinese&#39;))</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ENGINE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_NAME</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMENTS_FIRST_FEW</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_PORT</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#39;F j&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>&#39;/accounts/login/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#39;P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%Y-%m-%d&#39;,
+ &#39;%m/%d/%Y&#39;,
+ &#39;%m/%d/%y&#39;,
+ &#39;%b %d %Y&#39;,
+ &#39;%b %d, %Y&#39;,
+ &#39;%d %b %Y&#39;,
+ &#39;%d %b, %Y&#39;,
+ &#39;%B %d %Y&#39;,
+ &#39;%B %d, %Y&#39;,
+ &#39;%d %B %Y&#39;,
+ &#39;%d %B, %Y&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;csrftoken&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>&#39;default&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMIN_MEDIA_PREFIX</td>
+          <td class="code"><pre>&#39;/static/admin/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#39;django.contrib.sessions.backends.db&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>&#39;django.views.csrf.csrf_failure&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMENTS_SKETCHY_USERS_GROUP</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>&#39;/accounts/profile/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{&#39;disable_existing_loggers&#39;: False,
+ &#39;handlers&#39;: {&#39;mail_admins&#39;: {&#39;class&#39;: &#39;django.utils.log.AdminEmailHandler&#39;,
+                              &#39;level&#39;: &#39;ERROR&#39;}},
+ &#39;loggers&#39;: {&#39;django.request&#39;: {&#39;handlers&#39;: [&#39;mail_admins&#39;],
+                                &#39;level&#39;: &#39;ERROR&#39;,
+                                &#39;propagate&#39;: True}},
+ &#39;version&#39;: 1}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_STRING_IF_INVALID</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMENTS_ALLOW_PROFANITIES</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGOUT_URL</td>
+          <td class="code"><pre>&#39;/accounts/logout/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>&#39;localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y, P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SITE_ID</td>
+          <td class="code"><pre>1</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_INCLUDE_ROOTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>&#39;.&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#39;m/d/Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_USER</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>&#39;django.test.simple.DjangoTestSuiteRunner&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#39;America/Chicago&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>&#39;django.core.mail.backends.smtp.EmailBackend&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.context_processors.auth&#39;,
+ &#39;django.core.context_processors.debug&#39;,
+ &#39;django.core.context_processors.i18n&#39;,
+ &#39;django.core.context_processors.media&#39;,
+ &#39;django.core.context_processors.static&#39;,
+ &#39;django.contrib.messages.context_processors.messages&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#39;TweetNadwa.settings&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_ETAGS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>(&#39;he&#39;, &#39;ar&#39;, &#39;fa&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#39;/static/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>25</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>&#39;m/d/Y P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_OPTIONS</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BANNED_IPS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%Y-%m-%d %H:%M:%S&#39;,
+ &#39;%Y-%m-%d %H:%M&#39;,
+ &#39;%Y-%m-%d&#39;,
+ &#39;%m/%d/%Y %H:%M:%S&#39;,
+ &#39;%m/%d/%Y %H:%M&#39;,
+ &#39;%m/%d/%Y&#39;,
+ &#39;%m/%d/%y %H:%M:%S&#39;,
+ &#39;%m/%d/%y %H:%M&#39;,
+ &#39;%m/%d/%y&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_PASSWORD</td>
+          <td class="code"><pre>&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMIN_FOR</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMENTS_BANNED_USERS_GROUP</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROFANITIES_LIST</td>
+          <td class="code"><pre>&#39;********************&#39;</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+
+<div id="explanation">
+  <p>
+    You're seeing this error because you have <code>DEBUG = True</code> in your
+    Django settings file. Change that to <code>False</code>, and Django will
+    display a standard 500 page.
+  </p>
+</div>
+</body>
+</html>

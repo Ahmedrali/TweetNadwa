@@ -1,0 +1,147 @@
+#gvTooltip {
+  padding: 5px;
+
+  background: #fff;
+  border: solid 2px #ccc;
+  
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  
+  position: absolute;
+  min-height: 20px;
+  min-width: 50px;
+  
+  font-family: arial, verdana;
+  font-size: 12px;
+  line-height: 1.2em;
+}
+
+#gvTooltip .arrow {
+	width: 1px;
+	height: 1px;
+	border-color: #ccc transparent transparent transparent;
+	border-style: solid;
+	border-width:  12px 8px 0 8px ;
+	position: absolute;
+	bottom: -13px;
+	left: 10px;
+}
+
+#gvTooltip.left .arrow {
+  width: 1px;
+  height: 1px;
+  border-color: transparent #ccc transparent transparent;
+  border-style: solid;
+  border-width: 8px 12px 8px 0px;
+  bottom: 10px;
+  left: -13px;
+}
+
+#gvTooltip.right .arrow {
+  width: 1px;
+  height: 1px;
+  border-color: transparent transparent transparent #ccc;
+  border-style: solid;
+  border-width: 8px 0px 8px 12px;
+  bottom: 10px;
+  left: -13px;
+}
+
+#gvTooltip.top .arrow {
+  width: 1px;
+  height: 1px;
+  border-color: transparent transparent #ccc transparent;
+  border-style: solid;
+  border-width: 0px 8px 12px 8px;
+  bottom: 33px;
+  left: 10px;
+}
+
+
+#gvTooltipData {
+  display: none;
+}
+
+
+/* -----------------------------------*/
+/* ---------->>> Styles <<<-----------*/
+/* -----------------------------------*/
+
+/* Clean */
+#gvTooltip.clean {
+  border-color: #ddd;
+  background: #e9e9e9;
+  color: #444;
+  text-shadow: #fff 0 1px 1px;
+  background: -moz-linear-gradient(0% 100% 90deg, #e9e9e9, #fcfbfb);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fcfbfb), to(#e9e9e9));
+}
+#gvTooltip.clean .arrow {border-color: #ddd transparent transparent transparent;}
+#gvTooltip.clean.left .arrow {border-color: transparent #ddd transparent transparent;}
+#gvTooltip.clean.right .arrow {border-color: transparent transparent transparent #ddd;}
+#gvTooltip.clean.top .arrow {border-color: transparent transparent #ddd transparent;}
+
+
+/* Dark */
+#gvTooltip.dark {
+  border-color: #222;
+  background: #555;
+  color: #fff;
+  text-shadow: #000 0 1px 1px;
+  background: -moz-linear-gradient(0% 100% 90deg, #444, #666);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#444));
+}
+#gvTooltip.dark .arrow {border-color: #222 transparent transparent transparent;}
+#gvTooltip.dark.left .arrow {border-color: transparent #222 transparent transparent;}
+#gvTooltip.dark.right .arrow {border-color: transparent transparent transparent #222;}
+#gvTooltip.dark.top .arrow {border-color: transparent transparent #222 transparent;}
+
+
+/* Blue */
+#gvTooltip.blue {
+  border-color: #3069c1;
+  background: #3a85f8;
+  color: #fff;
+  text-shadow: #3f79cf 0 1px 1px;
+  background: -moz-linear-gradient(0% 100% 90deg, #3a85f8, #66b2f1);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66b2f1), to(#3a85f8));
+}
+#gvTooltip.blue .arrow {border-color: #3a85f8 transparent transparent transparent;}
+#gvTooltip.blue.left .arrow {border-color: transparent #3069c1 transparent transparent;}
+#gvTooltip.blue.right .arrow {border-color: transparent transparent transparent #3069c1;}
+#gvTooltip.blue.top .arrow {border-color: transparent transparent #3069c1 transparent;}
+
+
+
+/* Orange */
+#gvTooltip.orange {
+  border-color: #b95d2e;
+  background: #dd7d34;
+  color: #fff;
+  text-shadow: #b95d2e 0 1px 1px;
+  background: -moz-linear-gradient(0% 100% 90deg, #dd7d34, #ea9f5b);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ea9f5b), to(#dd7d34));
+}
+#gvTooltip.orange .arrow {border-color: #dd7d34 transparent transparent transparent;}
+#gvTooltip.orange.left .arrow {border-color: transparent #b95d2e transparent transparent;}
+#gvTooltip.orange.right .arrow {border-color: transparent transparent transparent #b95d2e;}
+#gvTooltip.orange.top .arrow {border-color: transparent transparent #b95d2e transparent;}
+
+
+
+/* Green */
+#gvTooltip.green {
+  border-color: #487e44;
+  background: #5ea659;
+  color: #fff;
+  text-shadow: #248f2b 0 1px 1px;
+  background: -moz-linear-gradient(0% 100% 90deg, #5ea659, #61be5b);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#61be5b), to(#5ea659));
+}
+#gvTooltip.green .arrow {border-color: #487e44 transparent transparent transparent;}
+#gvTooltip.green.left .arrow {border-color: transparent #487e44 transparent transparent;}
+#gvTooltip.green.right .arrow {border-color: transparent transparent transparent #487e44;}
+#gvTooltip.green.top .arrow {border-color: transparent transparent #487e44 transparent;}
+
+
